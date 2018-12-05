@@ -1,8 +1,0 @@
-{
-    "python.pythonPath": "D:\\IDE\\Python\\Python37-32\\python.exe",
-    "files.associations": {
-        "*.py": "python",
-        "iostream": "cpp",
-        "cmath": "cpp"
-    }
-}
