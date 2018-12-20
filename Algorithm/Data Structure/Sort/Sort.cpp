@@ -118,6 +118,95 @@ void bubbleSort(ElementType A[], int n){
 
 }
 
+ElementType median3(ElementType A[], int left, int right){
+    int center=(left+right)/2;
+    if(A[left>center])
+        swap(A[left], A[center]);
+    if(A[left]>A[right])
+        swap(A[left], A[center]);
+    if(A[center]>A[right])
+        swap(A[left], A[center]);
+    // 此时满足：A[left]<=A[center]<=A[rigth]
+    swap(A[center], A[right-1]);
+    return A[right-1];  // 返回基准
+}
+
+void qSort(ElementType A[], int left, int right){
+    int pivot, cutoff, low, high;
+    if(cutoff<right-1){
+        pivot=median3(A, left, right);
+        low=left;high=right-1;
+        while(1){
+            while(A[++low]<pivot);
+            while(A[--high]>pivot);
+            if(low<high)
+                swap(A[low], A[high]);
+            else
+                break;
+        }
+        swap(A[low], A[right-1]);
+        qSort(A, left, low-1);
+        qSort(A, low+1, right);
+    }
+}
+
+void quickSort(ElementType A[], int n){
+    qSort(A, 0, n-1);
+}
+
+/**
+ * l为左边起始位置；r为右边起始位置；rightEnd为右边终点位置
+ * 将有序的A[l,r-1]和A[r, rightEnd]归并成一个有序序列
+ * */
+void merge(ElementType A[], ElementType tmp[], int l, int r, int rightEnd){
+    int leftEnd, numElements, t;
+    int i;
+    leftEnd=r-1;
+    t=l;
+    numElements=rightEnd-1;
+    while(l<=leftEnd&&r<=rightEnd){
+        if(A[l]<=A[r])
+            tmp[t++]=A[l++];
+        else
+            tmp[t++]=A[r++];
+    }
+    while(l<=leftEnd)
+        tmp[t++]=A[l++];
+    while(r<=rightEnd)
+        tmp[t++]=A[r++];
+    for(i=0;i<numElements;++i,--rightEnd)
+        A[rightEnd]=tmp[rightEnd];
+}
+/**
+ * 
+ * 核心归并
+ * */
+void mSort(ElementType A[], ElementType tmp[],int l,int rightEnd){
+    int center;
+
+    if(l<rightEnd){
+        center=(l+rightEnd)/2;
+        mSort(A,tmp,l,center);
+        mSort(A,tmp,center+1,rightEnd);
+        merge(A,tmp,l,center+1,rightEnd);
+    }
+}
+
+
+/**
+ * 归并排序
+ * 时间复杂度：O(N log 2 N)
+ * */
+void mergeSort(ElementType A[], int n){
+    ElementType *tmp;
+    tmp=(ElementType*)malloc(n*sizeof(ElementType));
+    if(tmp!=NULL){
+        mSort(A, tmp, 0, n-1);
+        free(tmp);
+    }else
+        printf("空间不足\n");
+}
+
 
 void show(int A[], int start, int end){
     printf("the array is :");
@@ -144,10 +233,17 @@ int main(){
     // insertionSort(A, length);
 
     // 测试shellSort success
-    // shellSort(A, length);
+    shellSort(A, length);
 
     // 测试bubbleSort success
-    bubbleSort(A, length);
+    // bubbleSort(A, length);
+
+    // 测试quickSort fail
+    // quickSort(A, length);
+
+
+    // 测试mergeSort 
+    // mergeSort(A, length);
     show(A, 0, length);
     return 0;
 }
