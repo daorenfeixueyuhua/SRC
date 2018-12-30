@@ -1,0 +1,25 @@
+B B C A D
+B C C A D
+B B A B B 
+
+2 2
+构造方法
+方法、属性
+I am it ttudent
+set
+（忘了）
+OutputStream
+BufferInputStream
+Runable
+next
+
+
+extends Thread              睡眠n毫秒
+
+
+stmat.execute("select * from student");
+stmat.execute("update student set name = "Yang" Where id = 1");
+stmat.execute("delete from student Where id = 2);
+
+
+其他的忘了
