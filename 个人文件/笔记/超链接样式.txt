@@ -1,0 +1,8 @@
+（1）设置连接未被访问时的样式
+a:link{font-size:10px;...}
+（2）设置链接在鼠标经过时的样式
+a:hover{font-size:10px;...}
+（3）设置连接激活时的样式
+a:active{font-size:10px;...}
+（4）设置连接已被访问过的样式
+a:visited{font-szie:10px;color:#00ffff;...}

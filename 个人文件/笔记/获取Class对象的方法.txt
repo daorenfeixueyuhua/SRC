@@ -1,0 +1,6 @@
+获取Class对象的5种方法：
+1.Object.getClass();	只对引用类型有用
+2..class		最简单的方式
+3.Class.forName("类的全路径");
+4.包装类的TYPE域
+5.以Class为返回的方法

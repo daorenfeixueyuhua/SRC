@@ -1,0 +1,144 @@
+//////////////////////////////////////////
+Shiro简介
+	Apache开源安全框架
+	Shiro和Spring Security
+		Shiro：简单，灵活
+				可脱离Spring
+				粒度较粗
+		Spring Security：复杂，笨重
+						不可脱离Spring
+						粒度更细
+				
+//////////////////////////////////////////				
+Shiro整体架构
+	
+//////////////////////////////////////////
+Shiro认证，授权，自定义Realm
+	Shiro认证：
+		创建SecurityManager
+		主体提交认证
+		SecurityManager
+		Authenticator认证
+		Realm验证
+	Shiro授权
+		创建SecurityManager
+		主体授权
+		SecurityManger授权
+		Authorizer授权
+		Realm获取角色权限数据
+	Shiro自定义Realm
+		内置Realm：
+			IniRealm：
+				
+			JdbcRealm：
+				设置数据源
+				Realm加载数据源
+				开启权限
+		自定义Realm
+			extends AuthorizerRealm
+			继承方法：
+				授权
+				doGetAuthorizationInfo
+					1.从主体传过来的认证信息，获取用户名
+						String userNmae=(String)
+					2.通过用户名到数据库或者缓存中获取角色数据
+						Set<String> roles=
+						Set<String> permissions=
+					3.创建返回对象
+						
+				认证
+				doGetAuthenticationInfo
+					1.从主体传过来的认证信息，获取用户名
+						String userNmae=(String)
+					2.通过用户名到数据库中获取凭证
+						（从数据库中拿东西）
+						String Password=(String)
+					3.密码验证
+					4.创建返回对象
+						userNmae,passWord,realmName
+			private String getPasswordByUserName()
+			private Set<String> getRolesByUserName()
+			private Set<String>  getPermissionsByUserName()
+	Shiro加密：
+		Shiro散列配置：
+			HashedCredentialsMatcher：
+				setHashAlgorithmName(加密名称)
+				setHashIterations(加密次数)
+				realm中加入matcher
+				
+				Realm中中配置
+				
+			自定义Realm中使用散列：
+			盐的使用：
+				加盐
+				在返回之前
+				info.setCredentialsSalt(ByteSource.Utils.bytedt("盐"));
+		
+//////////////////////////////////////////
+Shiro集成Spring
+	演示：
+		pom.xml
+			spring-context
+			spring-webmvc
+			shiro-core
+			shiro-spring
+			shiro-web
+			mysql-connection-java
+			druid
+			mybatis/hibernate/spring-jdbc
+		web.xml
+			配置shiroFilter
+		spring.xml
+			配置shiroFilter
+				配置securityManger
+				配置loginUrl
+				配置filterChainDefinition
+					链：
+					/login.html = anno
+					/subLogin = anno
+					/* = authc
+			配置SecurityManger对象
+				注入Realm
+			配置CustomRealm
+				设置matcher
+			配置HashedCredentialsMatcher
+				设置加密算法，加密次数
+		spring-mvc.xml
+			<context:component-scan />
+			<mvc:annotation-driven>
+			<mvc:resource mapping="/*" location="/";
+		index.html:
+		login.html:
+			form:username,password
+		Controller:
+		vo.User:
+		配置tomcat：
+			配置更新文件
+	spring-dao.xml
+		导入spring-dao.xml
+		配置注解扫描
+		配置数据源
+		配置spring-jdbc
+			设置dataSource
+	UserDao:
+		getUsers(username);
+	
+	通过注解配置授权：
+		引入：aspectjweaver
+	
+	Shiro过滤器：
+		内置过滤器：
+			anno,authBasic,authc,user,logout
+			perms,roles,ssl,port
+	
+	自定义filter
+
+！！！未完成
+Shiro会话管理和缓存管理
+	Shiro Session管理：
+			SesssionManager,SessionDAO
+				maven导入jedis
+				重写dao
+			Redis实现Session共享
+			Redis实现Sesssin共享存在的问题
+	
