@@ -1,14 +1,24 @@
+// Let the Balloon Rise
 #include <iostream>
+#include <map>
 #include <string>
-#include <vector>
 using namespace ::std;
 int main(){
-    int N;
-    while(scanf("%d",&N)!=EOF&&N){
-        vector<string> A(N, "0");
-        for (int i = 0; i < N;++i)
-            cin >> A[i];
-        
+    int n;
+    while(cin>>n&&n){
+        map<string, int> map;
+        for (int i = 0; i < n;++i){
+            string s;
+            cin >> s;
+            // if(map.find(s)==map.end){
+                // map.insert(pair<string, int>(s, 1));
+            // }else{
+                map.insert(pair<string, int>(s, map.find(s) + 1));
+            // }
+        }
+       for(auto p:map){
+           cout << p.first << " " << p.second << endl;
+       }
     }
     return 0;
 }
