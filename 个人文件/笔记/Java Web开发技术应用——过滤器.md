@@ -1,14 +1,14 @@
-# Java Web开发技术应用——过滤器
-## 1. 过滤器简介
+# **Java Web开发技术应用——过滤器**
+## **1. 过滤器简介**
 
-### 1.1. Java web过滤器简介
+### **1.1. Java web过滤器简介**
 过滤作用，对从客户端向服务器发送的请求进行过滤，也可以对服务器返回的响应进行处理，可以改变request和修改response。Filter不是一个Servlet，它不可能产生一个response。但是可以在一个request到达servlet之前预处理request，也可以在response离开servlet后处理response。实际上，filter时客户端与servlet之间的一个传递者，且可以对要传递的内容进行修改。
 
 **注意：** 过滤器是用来拦截请求和响应的，不能产生响应，而servlet是用来处理 请求并产生响应的。
 
-## 2. 过滤器的工作原理和生命周期
-### 2.1.过滤器的工作原理
-* 当客户端发生请求后，在HttpServletRequest到达Servlet之前，过滤器拦截客户端的HttpServletRequest
+## **2. 过滤器的工作原理和生命周期**
+### **2.1.过滤器的工作原理**
+* 当客户端发生请求后，在`HttpServletRequest`到达`Servlet`之前，过滤器拦截客户端的`HttpServletRequest`
 * 根据需要检查HttpServletRequest，也可以修改HttpServletRequest头和数据。
 * 在过滤器中调用doFilter方法，对请求进行放行。
 * 在HTTP ServletResponse到达客户端之前，对HttpServletResponse进行拦截。

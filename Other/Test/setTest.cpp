@@ -1,10 +1,6 @@
 #include <iostream>
-#include <set>
-#include <string>
 using namespace ::std;
 int main(){
-    set<string> s;
-    s.insert("hello");
-    
+    cout << "hello" << endl;
     return 0;
 }
