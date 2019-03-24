@@ -4,3 +4,6 @@ C&C++/out/test.exe
 .vscode/settings.json
 .vscode/tasks.json
 .gitignore
+.vscode/ipch/16aca7c84265fd02/TEST_CASE_USER.ipch
+.vscode/ipch/16aca7c84265fd02/mmap_address.bin
+.vscode/ipch/a2f11a96b3b482a4/mmap_address.bin
