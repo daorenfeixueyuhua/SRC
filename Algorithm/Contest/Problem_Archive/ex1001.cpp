@@ -1,15 +1,16 @@
 #include <iostream>
 #include <string>
 #include <vector>
+typedef long long ll;
 using namespace ::std;
 int main()
 {
-    vector<int> A;
-    A.push_back(1);
-    string s = "120";
-    s.length();
-    int a = 10;
-    cout << a << endl;
-    int b = 10;
+    ll n, result = 0;
+    while (cin >> n)
+    {
+        result = n * (n + 1) / 2;
+        cout << result << endl;
+        cout << endl;
+    }
     return 0;
 }
