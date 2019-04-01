@@ -1,24 +1,40 @@
 // Let the Balloon Rise
 #include <iostream>
+#include <algorithm>
 #include <map>
 #include <string>
 using namespace ::std;
-int main(){
+typedef map<string, int> StringIntMap;
+bool comp(const StringIntMap::iterator &it1, const StringIntMap::iterator &it2)
+{
+    return it1->second < it2->second ? 1 : 0;
+}
+int main()
+{
     int n;
-    while(cin>>n&&n){
-        map<string, int> map;
-        for (int i = 0; i < n;++i){
+    while (cin >> n && n)
+    {
+        StringIntMap coll, max;
+        StringIntMap::iterator pos, maxPos;
+        for (int i = 0; i < n; ++i)
+        {
             string s;
             cin >> s;
-            // if(map.find(s)==map.end){
-                // map.insert(pair<string, int>(s, 1));
-            // }else{
-                map.insert(pair<string, int>(s, map.find(s) + 1));
-            // }
+            pos = coll.find(s);
+            if (pos != coll.end())
+                pos->second++;
+            else
+                coll[s] = 1;
         }
-       for(auto p:map){
-           cout << p.first << " " << p.second << endl;
-       }
+        maxPos = coll.begin();
+        for (pos = coll.begin(); pos != coll.end(); ++pos)
+        {
+            if (maxPos->second < pos->second)
+                maxPos = pos;
+        }
+        // 待更新comp函数
+        // pos = max_element(coll.begin(), coll.end(), comp);
+        cout << maxPos->first << endl;
     }
     return 0;
 }
