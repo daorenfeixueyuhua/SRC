@@ -1,12 +1,15 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string.h>
+#include <cctype>
 using namespace std;
 typedef long long ll;
 
 int main()
 {
-    string s;
-    getline(cin, s);
-    int length = s.length();
+    char s[100];
+    gets(s);
+    // getline(cin, s);
+    int length = strlen(s);
     for (int i = 0; i < length; ++i)
     {
         if (isspace(s[i - 1]) || i - 1 == -1)

@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <stdio.h>
 using namespace std;
 typedef long long ll;
 
@@ -33,7 +34,7 @@ void ddadd()
     switch (dd)
     {
     case 29:
-        if (mm == 2)
+        if (mm == 2 && !isR(yy))
         {
             mmadd();
             dd = 1;
@@ -69,13 +70,15 @@ int main()
     mm = 11;
     dd = 24;
     scanf("%d%d%d", &ey, &em, &ed);
-
+    // cout << ey << " " << em << " " << ed << endl;
     // 统计strat到end之间的天数
     int C = 0;
-    while (yy != ey && mm != em & dd != ed)
+    while (1)
     {
         C++;
         ddadd();
+        if (yy == ey && mm == em && dd == ed)
+            break;
     }
     C %= 5;
     if (C <= 2 && C != 0)

@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <stdio.h>
 using namespace std;
 typedef long long ll;
 
@@ -31,20 +32,15 @@ void ddadd()
     dd++;
     switch (dd)
     {
+
     case 29:
-        if (mm == 2)
+        if (mm == 2 && !isR(yy))
         {
             mmadd();
             dd = 1;
         }
         break;
-    case 30:
-        if (mm == 2 && isR(yy))
-        {
-            mmadd();
-            dd = 1;
-        }
-        break;
+
     case 31:
         if (mm == 4 || mm == 6 || mm == 9 || mm == 11)
         {
