@@ -14,37 +14,37 @@ int n, m, edge[nmax][nmax], path[nmax][nmax], value[nmax][nmax];
 
 struct vertex
 {
-    // ç‚¹ç¼–å·1~n
+    // µã±àºÅ1~n
     int id;
-    // è¯¥ç‚¹åå­—, ä¾‹å¦‚ï¼ˆè´µå¸ˆå¤§ç­‰ç­‰ï¼‰
+    // ¸ÃµãÃû×Ö, ÀıÈç£¨¹óÊ¦´óµÈµÈ£©
     string name;
 } V[nmax];
 
 ofstream fout;
 ifstream fin;
-// åˆå§‹åŒ–è¾¹
+// ³õÊ¼»¯±ß
 void init();
 
-// å…¨å±€å˜é‡åˆå§‹åŒ–
+// È«¾Ö±äÁ¿³õÊ¼»¯
 void dataInit();
 
-// æ‰‹åŠ¨è¾“å‡ºè¾¹
+// ÊÖ¶¯Êä³ö±ß
 void input();
-// ä¿å­˜è¾¹
+// ±£´æ±ß
 void save();
-// è®¡ç®—æœ€çŸ­è·¯å¾„
+// ¼ÆËã×î¶ÌÂ·¾¶
 void minPath();
-// æ‰“å°æœ€çŸ­è·¯å¾„å€¼
+// ´òÓ¡×î¶ÌÂ·¾¶Öµ
 void print_min_value();
-// æ‰“å°è·¯å¾„
+// ´òÓ¡Â·¾¶
 void print_path(int i, int j);
 //
 void get();
 
-//å¢åŠ ä¸€ä¸ªç‚¹
+//Ôö¼ÓÒ»¸öµã
 void addVertex();
 
-// æŸ¥çœ‹æ‰€æœ‰ä½ç½®ä¿¡æ¯
+// ²é¿´ËùÓĞÎ»ÖÃĞÅÏ¢
 void showAllVerter();
 
 int main()
@@ -71,7 +71,7 @@ void init()
             fin >> edge[i][j];
     fin.close();
 
-    // åŠ è½½ä½ç½®ä¿¡æ¯
+    // ¼ÓÔØÎ»ÖÃĞÅÏ¢
     fin.open("./vecter", ios::in);
     for (int i = 1; i <= n; ++i)
     {
@@ -79,13 +79,13 @@ void init()
     }
     fin.close();
 
-    // åŠ è½½è®¡ç®—åçš„æ•°æ®
+    // ¼ÓÔØ¼ÆËãºóµÄÊı¾İ
     fin.open("./value", ios::in);
     for (int i = 1; i <= n; ++i)
         for (int j = 1; j <= n; ++j)
             fin >> value[i][j];
     fin.close();
-    // åŠ è½½è·¯å¾„
+    // ¼ÓÔØÂ·¾¶
     fin.open("./path", ios::in);
     for (int i = 1; i <= n; ++i)
         for (int j = 1; j <= n; ++j)
@@ -109,7 +109,7 @@ void get()
 
 void save()
 {
-    // ä¿å­˜ä½ç½®ä¿¡æ¯
+    // ±£´æÎ»ÖÃĞÅÏ¢
     fout.open("./vecter", ios::out);
     for (int i = 1; i <= n; ++i)
     {
@@ -118,9 +118,9 @@ void save()
     fout.close();
 
     fout.open("./edge", ios::out);
-    // ç‚¹çš„æ€»æ•°
+    // µãµÄ×ÜÊı
     fout << n << endl;
-    // ä¿å­˜è¾¹
+    // ±£´æ±ß
     for (int i = 1; i <= n; ++i)
     {
         for (int j = 1; j <= n; ++j)
@@ -129,7 +129,7 @@ void save()
     }
     fout.close();
     fout.open("./value", ios::out);
-    // ä¿å­˜ä»¥è®¡ç®—åçš„æ•°æ®
+    // ±£´æÒÔ¼ÆËãºóµÄÊı¾İ
     for (int i = 1; i <= n; ++i)
     {
         for (int j = 1; j <= n; ++j)
@@ -137,7 +137,7 @@ void save()
         fout << endl;
     }
     fout.close();
-    // ä¿å­˜è·¯å¾„
+    // ±£´æÂ·¾¶
     fout.open("./path", ios::out);
     for (int i = 1; i <= n; ++i)
     {
@@ -155,13 +155,13 @@ void input()
     memset(path, -1, sizeof(path));
     string name;
     int i, j;
-    cout << "è¾“å…¥è¯¥ä½ç½®åç§°(endç»“æŸè¾“å…¥!)" << endl;
+    cout << "ÊäÈë¸ÃÎ»ÖÃÃû³Æ(end½áÊøÊäÈë!)" << endl;
     while (cin >> name && name != "end")
     {
-        cout << "è¯¥ä½ç½®çš„ç¼–å·ä¸º: " << ++n << endl;
+        cout << "¸ÃÎ»ÖÃµÄ±àºÅÎª: " << ++n << endl;
         V[n].id = n;
         V[n].name = name;
-        cout << "è¯·è¾“å…¥è¯¥ä½ç½®ä¸å…¶ä»–ä½ç½®ä¹‹é—´çš„è·ç¦»ï¼Œæ ¼å¼ï¼šs e 100(0 0ç»“æŸ)" << endl;
+        cout << "ÇëÊäÈë¸ÃÎ»ÖÃÓëÆäËûÎ»ÖÃÖ®¼äµÄ¾àÀë£¬¸ñÊ½£ºs e 100(0 0½áÊø)" << endl;
         while (cin >> i >> j && (i && j))
         {
             cin >> edge[i][j];
@@ -174,7 +174,7 @@ void input()
 
 void minPath()
 {
-    // é‡æ–°è®¡ç®—value
+    // ÖØĞÂ¼ÆËãvalue
     for (int i = 1; i <= n; ++i)
     {
         value[i][i] = edge[i][i] = 0;
@@ -198,7 +198,7 @@ void minPath()
     }
 }
 
-// æ‰“å°è·¯å¾„
+// ´òÓ¡Â·¾¶
 void print_path(int i, int j)
 {
     int flag = 0;
@@ -215,26 +215,26 @@ void print_path(int i, int j)
             cout << V[i].name << " --> " << V[i].name << endl;
             break;
         }
-        // i->jã€€ä¸­é—´æ— ä½ç½®ï¼Œä¸”å¯ç›´è¾¾
+        // i->j¡¡ÖĞ¼äÎŞÎ»ÖÃ£¬ÇÒ¿ÉÖ±´ï
         else if (path[i][j] == -1 && edge[i][i] != inf)
         {
             Q.push(j);
             Q.push(i);
             break;
         }
-        // i->jã€€ä¸å¯åˆ°è¾¾
+        // i->j¡¡²»¿Éµ½´ï
         else if (path[i][j] == -1 && edge[i][i] == inf)
         {
-            cout << V[i].name << " --> " << V[j].name << "ã€€ä¸å¯åˆ°è¾¾" << endl;
+            cout << V[i].name << " --> " << V[j].name << "¡¡²»¿Éµ½´ï" << endl;
         }
-        // i->jä¹‹é—´è¿˜æœ‰ä½ç½®
+        // i->jÖ®¼ä»¹ÓĞÎ»ÖÃ
         else if (path[i][j] != -1)
         {
             Q.push(j);
             j = path[i][j];
         }
     }
-    // stackå»å€’ç½®
+    // stackÈ¥µ¹ÖÃ
     if (flag)
     {
         stack<int> temp;
@@ -245,7 +245,7 @@ void print_path(int i, int j)
         }
         Q.swap(temp);
     }
-    // æ‰“å°ä½ç½®è·¯å¾„
+    // ´òÓ¡Î»ÖÃÂ·¾¶
     while (!Q.empty())
     {
         int index = Q.top();
@@ -259,11 +259,11 @@ void print_path(int i, int j)
         }
     }
 }
-//å¢åŠ ä¸€ä¸ªç‚¹
+//Ôö¼ÓÒ»¸öµã
 void addVertex()
 {
-    // todo æœ‰bug
-    cout << "è¯·è¾“å…¥è¯¥ä½ç½®çš„åç§°(endç»“æŸ)ï¼š";
+    // todo ÓĞbug
+    cout << "ÇëÊäÈë¸ÃÎ»ÖÃµÄÃû³Æ(end½áÊø)£º";
     string name;
     cin >> name;
     n++;
@@ -274,15 +274,15 @@ void addVertex()
         edge[i][n] = edge[n][i] = inf;
     }
     edge[n][n] = 0;
-    cout << "è¯¥ä½ç½®çš„ç¼–å·ä¸º: " << n << endl;
-    cout << "è¯·è¾“å…¥è¯¥ä½ç½®ä¸å…¶ä»–ä½ç½®ä¹‹é—´çš„è·ç¦»ï¼Œæ ¼å¼ï¼šs e 100(0 0ç»“æŸ)" << endl;
+    cout << "¸ÃÎ»ÖÃµÄ±àºÅÎª: " << n << endl;
+    cout << "ÇëÊäÈë¸ÃÎ»ÖÃÓëÆäËûÎ»ÖÃÖ®¼äµÄ¾àÀë£¬¸ñÊ½£ºs e 100(0 0½áÊø)" << endl;
     int i, j;
     while (cin >> i >> j && i && j)
     {
         cin >> edge[i][j];
         edge[j][i] = edge[i][j];
     }
-    cout << "è¯·è¾“å…¥è¯¥ä½ç½®çš„åç§°(endç»“æŸ)ï¼š";
+    cout << "ÇëÊäÈë¸ÃÎ»ÖÃµÄÃû³Æ(end½áÊø)£º";
     minPath();
     save();
 }
