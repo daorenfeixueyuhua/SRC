@@ -1,37 +1,64 @@
 #include <iostream>
+#include <string>
 using namespace std;
-
-/**
- * 商店销售某一商品，商店每天公布统一的折扣（discount）。
- * 同时允许销售人员在销售时灵活掌握售价（price），
- * 在此基础上，对一次购10件以上者，还可以销售98折优待。
- * 现已知当天3个销售员销售情况为：
- * 
- * 请编写程序，计算出当日此商品的总销售款sum以及每件商品的平均售价
- * 。要求：用静态数据成员和静态成员函数实现。
-提示：将折扣discount，总销售款sum和商品销售总件数n，
-声明为静态数据成员，再定义静态成员函数average（
-求平均售价）和display（输出结果）。
-
- * */
-class market
+class Salesman
 {
-  private:
-    static int discount;
-    static int sum;
-    static int n;
-    int quantity;
-    int price;
+public:
+  static double average();
+  static void display();
+  Salesman(string, int, double);
 
-  public:
-    static void average();
-    static void display();
-    void buy(int quantity, int price)
-    {
-    }
+public:
+  static double discount;
+  static double sum;
+  static int n;
+
+private:
+  string num;
+  int quantity;
+  double price;
 };
+
+double Salesman::discount = 0.98;
+double Salesman::sum = 0.0;
+int Salesman::n = 0;
+
+Salesman::Salesman(string _num, int _quantity, double _price)
+{
+  num = _num;
+  quantity = _quantity;
+  price = _price;
+  if (quantity >= 10)
+  {
+    sum += quantity * discount * price;
+  }
+  else
+  {
+    sum += quantity * price;
+  }
+  n += quantity;
+}
+
+double Salesman::average()
+{
+  return sum / n;
+}
+
+void Salesman::display()
+{
+  cout << "n is : " << n << endl;
+  cout << "sum is : " << sum << endl;
+  cout << "average is : " << average() << endl;
+}
 int main()
 {
 
-    return 0;
+  Salesman s[3] = {
+      Salesman("101", 5, 23.5),
+      Salesman("102", 12, 24.56),
+      Salesman("103", 100, 21.5)};
+  Salesman::display();
+  cin.get();
+  cin.get();
+  return 0;
 }

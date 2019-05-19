@@ -1,0 +1,22 @@
+1. mysql无法使用管理工具连接
+    原因：高版本MySQL更换加密规则
+    解决方案：
+        一种是升级客户端驱动,
+        一种是把mysql用户登录密码加密规则还原成mysql_native_password
+            ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+
+2. 引入外键错误：
+    原来的：
+    constraint press foreign key(pressID) peferences press(PressID)
+    新的sql：
+    constraint press foreign key(PID) references press(PressID)
+
+3. 插入read失败
+    1. read 为mysql关键字，不能坐标表名,更改为 readR
+    2. rank 为关键字，不能作为字段名，更改为 _rank
+
+4. 插入user数据出错
+    例如：
+    ERROR 1366 (HY000): Incorrect string value: '\xC5\xED\xB4\xEF' for column 'nickname' at row 1 
+    原因，CMD不支持插入 中文
+    解决方案：我是换用DBMS的
