@@ -1,6 +1,11 @@
 # include <iostream>
 using namespace std;
-
+/**
+ * 斯特林数（Stirling）：
+ * 
+ * 
+ * 
+ * */
 int factorial(int n){
     if(n == 0)
         return 1;
