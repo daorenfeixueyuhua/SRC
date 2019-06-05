@@ -1,0 +1,15 @@
+c_give("code", counts)
+c_godmode()
+GetPlayer().components.hunger:SetMax(500)
+GetPlayer().components.sanity:setMax(500)
+GetPlayer().components.health:setMaxHealth(500)
+GetPlayer().components.builder:GiveAllRecipes()
+TheInput:GetWolrdEntityUnderMouse():Reomve()
+GetPlayer().Tranfrom:SetPosition(0, 0, 0)
+
+material:
+cutgrass
+twigs
+log
+charcoal
+ash
