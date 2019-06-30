@@ -1,0 +1,12 @@
+2019-06-17 安装loadrunner失败：原因：管理员阻止安装该应用。
+2019-06-17 运行出现异常： Packet for query is too large ：解决方案：
+2019-06-18 jdbc运行错误：java.sql.SQLException: The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more 
+    解决方案：url="jdbc:mysql://localhost:3306/task14?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false"
+
+
+2019-06-18 No operations allowed after connection closed. 错误 原因：Jdbc工具类中connection为静态资源，调用了close()就关闭了，再次使用就报错了
+    解决方案：重写jdbc工具类
+2019-06-26 jsp访问css 404 错误 
+    提示1：可能是ajax使用得跨域问题
+
+2019/06/26 表未点击提交按钮就自行提交
