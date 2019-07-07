@@ -1,0 +1,1 @@
+select sname, cname, grade from student, course, sc;
