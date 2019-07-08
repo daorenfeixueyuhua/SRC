@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>二维数组</title>
+    <script type="text/javascript">
+        var arr = new Array();
+        for (var i = 1; i <= 3; ++i) {
+            arr[i] = new Array();
+            for (var j = 1; j <= 5; ++j) {
+                arr[i][j] = i * j;
+            }
+        }
+
+        for (var i = 1; i <= 3; ++i) {
+            for (var j = 1; j <= 5; ++j) {
+                document.write(arr[i][j] + " ");
+            }
+            document.write("<br>");
+        }
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
