@@ -1,9 +1,9 @@
 import math
-
-m = 1234567890
-
-print(10 ** math.log10(m))
-
-
-x = 10 ** math.log(10, 10)
-print(x)
+# 去一个数的前4位
+v = int(input())
+temp = math.log10(v)
+temp -= math.floor(temp)
+temp = pow(10.0, temp)
+while temp < 1000:
+    temp *= 10
+print(int(temp))

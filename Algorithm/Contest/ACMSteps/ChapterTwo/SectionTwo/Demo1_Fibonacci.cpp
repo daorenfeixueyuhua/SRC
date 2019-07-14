@@ -1,41 +1,38 @@
 // Fibonacci
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace ::std;
 const int length = 100000001;
+// 参考：https://www.cnblogs.com/shanyr/p/4671731.html
 
-int MAX = 10000;
-vector<int> Fi(int n)
+// 当n<21时，递归层次少，可直接调用
+int ff(int n)
 {
-    vector<int> f0(MAX, 0), f1(MAX, 0), f2(MAX, 0);
-    f0[MAX - 1] = f1[MAX - 1] = 1;
-    if(n==0)
-        f1 = f0;
-    for (int i = 2; i <= n;i++){
-
-    }
-}
-
-long long Fibonacci(long long n)
-{
-    long long f0 = 0, f1 = 1, f2;
     if (n == 0)
-        f1 = f0;
-    for (int i = 2; i <= n; ++i)
-    {
-        f2 = f0 + f1;
-        f0 = f2 - f0;
-        f1 = f2;
-    }
-    return f1;
+        return 0;
+    if (n == 1)
+        return 1;
+    return ff(n - 1) + ff(n - 2);
 }
 
 int main()
 {
-    long long n;
+    int n;
     while (cin >> n)
     {
-        cout << Fibonacci(n) << endl;
+        if (n >= 21)
+        {
+            double s = (1 + sqrt(5.0)) / 2.0;
+            double temp = -0.5 * log(5.0) / log(10.0) + ((double)n) * log(s) / log(10.0);
+            temp = temp - floor(temp);
+            temp = pow(10.0, temp);
+            while (temp < 1000.0)
+                temp *= 10.0;
+            cout << int(temp) << endl;
+        }
+        else
+            cout << ff(n) << endl;
     }
     return 0;
 }
