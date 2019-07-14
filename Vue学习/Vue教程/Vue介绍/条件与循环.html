@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app-if">
+        <p v-if="seen">你好啊!</p>
+    </div>
+
+    <div id="app-loop">
+        <ol>
+            <li v-for="todo in todos">
+                {{text}}
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        var app3 = new Vue({
+            el: '#app-if',
+            data: {
+                seen: true
+            }
+        })
+        var app4 = new Vue({
+            el: '#app-loop',
+            data: {
+                todos: [
+                    { text: '王二' },
+                    { text: '张三' },
+                    { text: '李四' }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>
