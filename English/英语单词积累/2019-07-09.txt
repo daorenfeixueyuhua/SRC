@@ -1,0 +1,12 @@
+possession 财产、领地：possession possession
+invitation 邀请：invitation invitation
+servant 佣人、奴隶：servant servant servant servant servant
+tiresome 无聊的：tiresome tiresome tiresome tiresome
+nonsense 瞎扯：nonsense nonsense nonsense nonsense
+flatter 奉承：flatter flatter flatter flatter
+extraordinary 特别的：extraordinary extraordinary extraordinary
+improvement 改良：improvement improvement improvement improvement
+protocol 协议：protocol protocol protocol protocol protocol protocol
+idempotent 幂等：idempotent idempotent idempotent idempotent
+engage 聘用：engage engage engage
+interview 提问、面试: interview interview 
