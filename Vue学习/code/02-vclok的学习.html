@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        [v-cloak] {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- v-cloak解决闪烁问题 -->
+        <p v-cloak>{{msg}}</p>
+
+        <h4 v-text="msg"></h4>
+
+        <div v-html="msg3"></div>
+
+        <span v-bind="message"></span>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: 123,
+                msg3: '<h1>卧槽</h1>',
+                message: '页面加载与 '  + new Date().toLocaleString()
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 绑定事件 -->
+        <input type="button" value="浪起来" v-on:click="lang"> 
+        <input type="button" value="别浪" @click="stop">
+        <h4>{{msg}}</h4>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '低调一点，别浪~~!',
+                intervalId: null
+            },
+            methods: {
+                lang() {
+                    // 当定时器已存在时，不做其他处理
+                    if(this.intervalId != null) return
+                    // 开启定时器
+                    this.intervalId = setInterval(() => {
+                        var start = this.msg.substring(0, 1);
+                        var end = this.msg.substring(1);
+                        this.msg = end + start
+                    }, 400)
+
+                },
+                stop() {
+                    // 清掉定时器
+                    clearInterval(this.intervalId)
+                    // 定时器设null
+                    this.intervalId = null
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

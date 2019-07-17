@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .inner {
+            width: 50px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 绑定事件 -->
+        <div class="inner" @click="innerHandler">
+            <input type="button" value="使劲戳" @click.stop="btnHandler">
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '低调一点，别浪~~!',
+            },
+            methods: {
+                innerHandler() {
+                    console.log('点击div')
+                },
+                btnHandler() {
+                    console.log('点击btn')
+
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
