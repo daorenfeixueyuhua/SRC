@@ -7,26 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
 </head>
 
 <body>
     <div id="app">
-
+        <h1 :style="{color:'red'}">我是你大爷</h1>
+        <h1 :style="styleObj1">你爸爸</h1>
     </div>
     <script>
         var vm = new Vue({
             el: '#app',
             data: {
                 msg: 'Hello',
-
+                styleObj1: {
+                    color: 'yellow',
+                    fontSize: 13
+                }
             },
             methods: {
                 helle() {
                     return 'Hello'
-                },
-
+                }
             },
         })
     </script>

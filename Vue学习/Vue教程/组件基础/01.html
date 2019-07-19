@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <div id="components-demo">
+            <!-- 每一次使用组件，就会有一个新的实例被创建 -->
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+            <br>
+            <component-a></component-a>
+
+            <blog-post title="天上天下" content="快来爽啊"></blog-post>
+            <blog-post title="个人文件"></blog-post>
+            <blog-post title="C++"></blog-post>
+            <hr>
+            <student-com v-for="item in students" :id="item.id" :name="item.name"></student-com>
+        </div>
+    </div>
+    <script>
+        // 通常一个应用会以一棵树嵌套的组件树的形式来组织（页头、侧边栏、内容区等等）Vue需要进行注册：全局注册、局部注册
+        // 组件时可复用的Vue实例
+        // 组件名不区分大小写 button-Counter == button-counter
+        // 全局注册
+        Vue.component('button-counter', {
+            // 一个组件的data选项必须时一个函数
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button @click="count++">Please clicked me {{count}}</button>'
+        })
+
+        Vue.component('blog-post', {
+            // Prop 在组件注册上的一些自定义特性。当一个值传递给一个prop特性的时候，就变成了那个组件实例的一个属性
+            props: ['title', 'content'],
+            template: '<h3>{{title}} : {{content}}</h3>',
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello',
+                students: [
+                    { id: 1, name: '彭达' },
+                    { id: 2, name: '王二' },
+                    { id: 3, name: '麻子' },
+                ]
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+
+            },
+            // 局部注册
+            components: {
+                'component-a': {
+                    data: function () {
+                        return {
+                            msg: 'Hello'
+                        }
+                    },
+                    template: '<input v-model="msg" type="text" />>'
+                },
+                'student-com': {
+                    props: ['id', 'name'],
+                    template: '<li>id: {{id}}&nbsp;name:{{name}}</li>'
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

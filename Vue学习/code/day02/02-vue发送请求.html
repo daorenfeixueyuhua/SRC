@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <button @click="send()">发送请求</button>
+    </div>
+    <script>
+        axios.defaults.baseURL = 'http://localhost:8080/'
+        // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
+        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello',
+                username: '',
+                password: ''
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+                send() {
+                    console.log(axios)
+                    axios({
+                        method: 'get',
+                        url: 'http://localhost:8080/Intelligent_pipe_network/adim/pipeCircuit/circuitId?regionId=7081',
+                        responseType: 'stream'
+                    }).then(function (response) {
+                        console.log('响应成功')
+                        console.log(response.data)
+                        // response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+                    });
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>

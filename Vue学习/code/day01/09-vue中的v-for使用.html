@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-for访问普通数据 -->
+        <div id="color">
+            <button v-for="(item, index) in list" :key="index">
+                {{item}} + {{index}}
+            </button>
+        </div>
+        <!-- v-for访问对象数组 -->
+        <div id="objList">
+            <li v-for="(item, index) in studentList" :key="index">
+                {{item.name}} {{item.age}} {{item.genger}} {{index}}
+            </li>
+        </div>
+        <!-- v-for访问对象的属性 -->
+        <div id="obj">
+            <p v-for="(item, index) in user" :key="index">
+                {{item}} {{index}}
+            </p>
+        </div>
+        <!-- v-for迭代数字 -->
+        <div id="num">
+            <button v-for="(item, index) in 10" :key="index">{{item}}----{{index}}</button>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello',
+                list: ['Red', 'Blue', 'Yellow', 'Pink'],
+                studentList: [
+                    { name: '彭达', age: 21, genger: '男' },
+                    { name: '彭达1', age: 21, genger: '男1' },
+                    { name: '彭达1', age: 21, genger: '男1' },
+                ],
+                user: {
+                    id: 1,
+                    name: '张三',
+                    age: 21
+                },
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+
+            },
+        })
+    </script>
+</body>
+
+</html>

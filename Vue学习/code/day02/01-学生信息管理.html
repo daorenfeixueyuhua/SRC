@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <div id="title">
+            <h1>学生信息管理</h1>
+        </div>
+        <div id="infoAdd">
+            <label for="">
+                <!-- 获取鼠标焦点 -->
+                ID: <input type="text" v-model="id" v-focus="">
+            </label>
+            <label for="">
+                Name: <input type="text" v-model="name">
+            </label>
+            <label for="">
+                <!-- 按键修饰符 -->
+                Score: <input type="text" v-model="score" @keyup.f1="add()">
+            </label>
+            <label for="">
+                <input type="button" value="添加" @click="add()">
+            </label>
+
+        </div>
+        <hr>
+        <div id="reach">
+            <label for="">
+                <!-- 绑定字体颜色 -->
+                学生姓名: <input type="text" v-model="keyWord" @click="rea(keyWord)" v-color="'pink'" v-font="900"
+                    v-color-swatch="'red'">
+            </label>
+        </div>
+        <hr>
+        <div id="info">
+            <table>
+                <thead>
+                    <th>
+                        <label>学号</label>
+                    </th>
+                    <th>
+                        <label>姓名</label>
+                    </th>
+                    <th>
+                        <label>成绩</label>
+                    </th>
+                </thead>
+                <tbody>
+                    <tr v-for="(student, index) in rea(keyWord)" :key="index">
+                        <td>{{student.id}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.score | scoreFilter1}}</td>
+                        <td><a href="" @click.prevent="del(index)">删除</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        // 自定义按键修饰符
+
+        Vue.config.keyCodes.f1 = 112
+        Vue.filter('scoreFilter', function (score) {
+            return score + '分'
+        });
+        Vue.directive('color', {
+            bind: function (el, binding) {
+                // el.style.color = 'red'
+                el.style.color = binding.value
+                console.log(binding.name)
+                console.log(binding.value)
+                console.log(binding.expression)
+            },
+        })
+        // 自定义指令
+        Vue.directive('focus', {
+            bind: function (el) { },
+            inserted: function (el) {
+                el.focus()
+            },
+            updated: function (el) {
+
+            },
+        })
+        // 指令简写
+        Vue.directive('color-swatch', function (el, binding) {
+            el.style.backgroudColor = binding.value
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello',
+                id: '',
+                name: '',
+                score: '',
+                keyWord: '',
+                students: [
+                    { id: '1', name: '彭达', score: 85.0 },
+                    { id: '2', name: '王二', score: 85.0 },
+                    { id: '3', name: '麻子', score: 85.0 },
+                    { id: '4', name: '张三', score: 85.0 },
+                ],
+            },
+
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+                add() {
+                    var s = { id: this.id, name: this.name, score: this.score }
+                    this.students.push(s)
+                    this.id = this.name = this.score = ''
+                },
+                del(index) {
+                    console.log(index)
+                    this.students.splice(index, 1)
+                },
+                rea(keyWord) {
+                    // console.log(keyWord)
+                    var list = this.students.filter(s => {
+                        if (s.name.includes(keyWord))
+                            return s
+                    })
+                    return list
+                }
+            },
+            // 私有过滤器
+            filters: {
+                'scoreFilter1': function (value) {
+                    return value + '芬芬'
+                }
+            },
+            // 自定义私有指令
+            directives: [
+                {
+                    'font': {
+                        bind: function (el, binding) {
+                            el.style.fontWeigth = binding.value
+                        }
+                    }
+                },
+            ]
+        })
+    </script>
+</body>
+
+</html>

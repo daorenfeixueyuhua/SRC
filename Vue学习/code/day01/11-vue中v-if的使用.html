@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-if -->
+        <input type="button" @click="toggle" value="切换">
+        <input type="button" value="" v-if="flag" v-model="msg">
+        <input type="button" value="" v-if="!flag" v-model="msg">
+
+
+        <!-- v-else -->
+
+        <input type="button" value="加" @click="add"><input type="button" value="减" @click="sub">
+        <input type="text" value="n" v-for="(item, index) in n" :key="index">
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello',
+                flag: true,
+                n: 0,
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+                toggle() {
+                    this.flag = !this.flag
+                },
+                add() {
+                    this.n++
+                },
+                sub() {
+                    this.n--
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

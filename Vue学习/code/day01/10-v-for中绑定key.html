@@ -7,25 +7,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
 </head>
 
 <body>
     <div id="app">
-
+        <div>
+            <label>character</label>
+            <input type="text" v-model="ch">
+            <button @click="add" >点击</button>
+            
+        </div>
+        <p v-for="(item, index) in list" :key="item">
+            <input type="radio" name="ch"> <button v-model="item">{{item}}</button>
+        </p>
     </div>
     <script>
         var vm = new Vue({
             el: '#app',
             data: {
                 msg: 'Hello',
-
+                ch: '',
+                list: [
+                    'A', 'B', 'C', 'D'
+                ]
             },
             methods: {
                 helle() {
                     return 'Hello'
                 },
+                add() {
+                    this.list.push(this.ch)
+                }
 
             },
         })
