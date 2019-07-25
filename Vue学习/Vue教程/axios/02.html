@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="card">
+            <div class="card-header">
+                Header
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>账号</th>
+                            <th>密码</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in list" :key="index">
+                            <td scope="row">{{item.name}}</td>
+                            <td>{{item.password}}</td>
+                            <td><a name="" id="" class="btn btn-primary" href="#" role="button">删除</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer text-muted">
+                Footer
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello',
+                list: [
+                    { name: 'pengda', password: '213' },
+                    { name: 'dada', password: '234' },
+                ]
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+
+            },
+        })
+    </script>
+</body>
+
+</html>

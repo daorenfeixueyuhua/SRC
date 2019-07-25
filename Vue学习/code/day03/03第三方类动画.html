@@ -7,24 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- 第三方动画css库 -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <div id="app">
+        <!-- 使用第三方动画库 -->
+        <div id="d2">
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off"
+                @click="flag=!flag">click</button>
+            <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
+                <h1 v-if="flag">I am you dada</h1>
+            </transition>
 
+        </div>
     </div>
     <script>
+        
         var vm = new Vue({
             el: '#app',
-            data() {
-                return {
-                    msg: 'hello, I am your dady',
-                }
+            data: {
+                msg: 'Hello',
+                flag: false,
             },
             methods: {
                 helle() {

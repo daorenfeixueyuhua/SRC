@@ -8,34 +8,29 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- 第三方动画css库 -->
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <div id="app">
-        <blog-post v-for="post in posts" :key="post.id" :post="post" :content="post.content"></blog-post>
+        <div id="d2">
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off"
+                @click="flag=!flag">click</button>
+            <!-- 使用钩子函数实现动画 -->
+            <transition v-on:before-enter="handle">
+                <h1 v-if="flag">I am you dada</h1>
+            </transition>
+
+        </div>
     </div>
     <script>
-        Vue.component('blog-post', {
-            props: ['post'],
-            data: function () {
-
-            },
-            template: `
-                < div id="blog-post" >
-                <h3>{{ post.title }}</h3>
-                <p>{{post.content}}</p>
-                </div>
-                `
-        })
         var vm = new Vue({
             el: '#app',
             data: {
                 msg: 'Hello',
-                posts: [
-                    { id: 1, title: 'Hello', content: '我是你爸爸' },
-                    { id: 2, title: 'Love', content: '我是你爸爸' },
-                ]
+                flag: false,
             },
             methods: {
                 helle() {

@@ -1,0 +1,120 @@
+{
+    // 数据
+    "data": {
+        // 井和管道的信息
+        "manholeAndPipeInfo": {
+            // 井信息
+            "manholeInfos": [
+                {
+                    // 井ID
+                    "manholeId": "1",
+                    // 井水位
+                    "waterLevel": 105.1,
+                    // 井状态：1 正常 2 井盖移位 3 传感器损坏 4 井盖移位/传感器损坏 5 水位传感器损坏
+                    "manholeState": 1,
+                    // 最新获取数据事件
+                    "currentTime": "2019-07-23 16:00:00",
+                    // 坐标描述
+                    "gpsPosition": "白云区第1号井",
+                    // 坐标
+                    "gpsId": "106.65651,26.68171"
+                }
+            ],
+            // 管道信息
+            "pipeInfos": [
+                {
+                    // 管道ID
+                    "pipeId": "1-2",
+                    // 最新获取数据事件
+                    "currentTime": "2019-07-23 16:00:00",
+                    // 载荷率
+                    "loadRate": 0.6,
+                    // 管道状态：1 正常 2 管道堵塞 3 管道破损   4 管道堵塞/破损 5 传感器异常
+                    "pipeState": 1,
+                    // 管道水位
+                    "waterLevel": 85.8,
+                    // 出水井坐标
+                    "flowoutGpsId": "106.65652,26.68172",
+                    // 入水井坐标
+                    "inflowGpsId": "106.65651,26.68171"
+                }
+            ],
+            // 井异常信息
+            "abnormalManholeInfos": [
+                {
+                    // 井ID
+                    "manholeId": "249",
+                    // 井水位
+                    "waterLevel": 13.9,
+                    // 井状态：1 正常 2 井盖移位 3 传感器损坏 4 井盖移位/传感器损坏 5 水位传感器损坏
+                    "manholeState": 3,
+                    // 异常发生事件
+                    "currentTime": "2019-07-23 16:00:00",
+                    // 井所处位置坐标描述
+                    "gpsPosition": "白云区第249号井",
+                    // 井所处位置坐标
+                    "gpsId": "106.6565249,26.6817249"
+                }
+            ],
+            // 管道异常信息
+            "abnormalPipeInfos": null
+        },
+        // 最新区域内平均载荷率
+        "avgLoadRatio": {
+            // 比例
+            "ratio": 0.45963264,
+            // 获取数据时间
+            "time": "2019-07-23 16:00:00"
+        },
+        // 异常事件列表
+        "abnormalEventList": [
+            {
+                // 异常发生时间
+                "time": "2019-07-23 16:00:00",
+                // 异常类型：1井异常 2 管道异常 3 维护 4 巡检
+                "type": "3",
+                // 位置
+                "position": "249",
+                // 事件类型：井：1 正常 2 井盖移位 3 传感器损坏 4 井盖移位/传感器损坏 5 水位传感器损坏
+                //          管道：1 正常 2 管道堵塞 3 管道破损   4 管道堵塞/破损       5 传感器异常
+                "description": "1"
+            }
+        ],
+        // 异常百分比
+        "abnormalPercentList": [
+            {
+                // 异常编码：井：11 正常 12 井盖移位 13 传感器损坏 14 井盖移位/传感器损坏 15 水位传感器损坏
+                //          管道：21 正常 22 管道堵塞 23 管道破损   24 管道堵塞/破损       25 传感器异常
+                "abnormalName": "13",
+                // 异常个数
+                "abnormalCount": 1,
+                // 占总异常的比例[0.0,1.0]
+                "abnormalPercent": 1
+            }
+        ],
+        // 管线流量统计
+        "pipelinewaterflowList": [
+            {
+                // 管线ID
+                "pipecircuitid": "7081-0",
+                // 流量
+                "flow": "14318.9"
+            }
+        ],
+        // 待讨论
+        "flowAndRainfallInfoList": null,
+        // 管线概述信息
+        "pipeCircuitInfos": [
+            {
+                // 管线ID
+                "pipeCircuitId": "7081-0",
+                // 管线长度
+                "pipeLength": 294000,
+                // 管线中管道个数
+                "sensorTotal": 98,
+                // 管线中井个数
+                "manholeTotal": 98
+            }
+        ]
+    }
+}

@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- 第三方动画css库 -->
@@ -16,7 +15,7 @@
 
 <body>
     <div id="app">
-
+        <com1 :msg="msg"></com1>
     </div>
     <script>
         var vm = new Vue({
@@ -30,8 +29,30 @@
                 helle() {
                     return 'Hello'
                 },
-
             },
+            components: {
+                com1: {
+                    // 由父组件提供
+                    // 为单向数据流动、且子组件中的prop不可更改。建议赋值给一个data变量
+                    props: {
+                        msg: {
+                            // props验证
+                            type: String,
+                            required: true,
+                            default: function () {
+                                return { message: 'default' }
+                            },
+                        },
+                    },
+                    // 自身提供或者由ajax获取
+                    data() {
+                        return {
+                            msg1: this.msg
+                        }
+                    },
+                    template: '<h1>我是你爸爸 ---{{msg1}}</h1>'
+                }
+            }
         })
     </script>
 </body>

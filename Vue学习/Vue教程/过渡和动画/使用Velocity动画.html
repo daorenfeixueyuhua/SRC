@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- 第三方动画css库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button type="button" class="btn btn-primary" @click="show=!show">Toggle</button>
+        <transition @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
+            <p v-if="show">Demo</p>
+        </transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello',
+                show: false,
+
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+                beforeEnter: function (el) {
+                    el.style.opacity = 0
+                    el.style.transfirmOrigin = 'left'
+                },
+                enter: function (el, done) {
+                    Velocity(el, { opacity: 1, fontSizr: '1.4em' }, { duration: 300 })
+                    Velocity(el, { fontSize: '1em' }, { complete: done })
+                },
+                leave: function (el, done) {
+                    Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+                    Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+                    Velocity(el, {
+                        rotateZ: '45deg',
+                        translateY: '30px',
+                        translateX: '30px',
+                        opacity: 0
+                    }, { complete: done })
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

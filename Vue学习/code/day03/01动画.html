@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .v-enter,
+        .v-laeve-to {
+            opacity: 0;
+            transform: translate(150px)
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.4s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 不使用动画 -->
+        <!-- <div id="d1">
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off"
+                @click="flag=!flag">click</button>
+            <h1 v-if="flag">I am you dada</h1>
+        </div> -->
+        <!-- 使用动画进行过度 -->
+        <div id="d2">
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off"
+                @click="flag=!flag">click</button>
+            <transition>
+                <h1 v-if="flag">I am you dada</h1>
+            </transition>
+
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello',
+                flag: false,
+
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+
+            },
+        })
+    </script>
+</body>
+
+</html>

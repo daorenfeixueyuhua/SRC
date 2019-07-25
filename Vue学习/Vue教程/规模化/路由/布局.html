@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- 第三方动画css库 -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css"> -->
+</head>
+
+<body>
+    <div id="app">
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <router-link class="nav-link active" to="/home">首页</router-link>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">动物</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">植物</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title">Title</h1>
+                <router-view></router-view>
+            </div>
+            <div class="card-footer text-muted">
+                Footer
+            </div>
+        </div>
+    </div>
+
+
+    <template id="homePage">
+        <div>
+            <img src="http://pic.netbian.com/uploads/allimg/190722/122117-1563769277be46.jpg" alt />
+        </div>
+    </template>
+
+    <script>
+        const home = {
+            template: '#homePage'
+        }
+        const router = new VueRouter({
+            routes: [
+                { path: '/', component: home },
+                { path: '/home', component: home },
+            ]
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    msg: 'hello, I am your dady',
+                }
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+
+            },
+            router: router
+        })
+    </script>
+</body>
+
+</html>

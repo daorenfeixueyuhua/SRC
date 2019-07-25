@@ -16,9 +16,36 @@
 
 <body>
     <div id="app">
-
+        
     </div>
+
     <script>
+        
+        const login = {
+            data() {
+                return {
+                }
+            },
+            // 组件的生命周期钩子函数
+            created() {
+                // 无法query获取参数
+                console.log(this.$route.query.id);
+
+            },
+            template: '<h1>登陆啊{{this.$route.query.id}}<h2>'
+        }
+        const register = {
+            props: ['id'],
+            template: '<h1>注册啊{{id}}<h2>'
+        }
+        // 注册路由
+        const routerObj = new VueRouter({
+            // 路由匹配规则
+            routes: [
+                { path: '/login', component: login },
+                { path: '/register/:id', component: register, props: { default: true, sidebar: false } }
+            ]
+        })
         var vm = new Vue({
             el: '#app',
             data() {
@@ -32,6 +59,8 @@
                 },
 
             },
+            router: routerObj,
+
         })
     </script>
 </body>

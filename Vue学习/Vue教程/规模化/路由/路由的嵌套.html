@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- 第三方动画css库 -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css"> -->
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/account">account</router-link>
+        <router-view></router-view>
+    </div>
+    <template id="account">
+        <div>
+            <h1>这是account</h1>
+            <!-- 嵌套使用路由 -->
+            <router-link to="/account/login">登陆</router-link>
+            <router-link to="/account/register">注册</router-link>
+            <router-view></router-view>
+        </div>
+    </template>
+
+    <template id="login">
+        <div>
+            这是登陆
+        </div>
+    </template>
+    <template id="register">
+        <div>
+            这是注册
+        </div>
+    </template>
+    <script>
+        const account = {
+            template: '#account'
+        }
+        const login = {
+            template: '#login'
+        }
+        const register = {
+            template: '#resiger'
+        }
+        const router = new VueRouter({
+            routes: [
+                {
+                    path: '/account', component: account,
+                    // 孩子的path不能以“/”开头
+                    children: [
+                        { path: 'login', component: login },
+                        { path: 'register', component: register }
+                    ]
+                }
+            ]
+        })
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    msg: 'hello, I am your dady',
+                }
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+            },
+            router: router
+        })
+    </script>
+</body>
+
+</html>

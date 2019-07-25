@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- 第三方动画css库 -->
@@ -16,7 +15,9 @@
 
 <body>
     <div id="app">
-
+        <button type="button" class="btn btn-primary" @click="add(123)">click</button>
+        <!-- 传递方法 -->
+        <com1 @func="add"></com1>
     </div>
     <script>
         var vm = new Vue({
@@ -30,8 +31,26 @@
                 helle() {
                     return 'Hello'
                 },
-
+                add(arg) {
+                    console.log('哈哈哈哈' + arg);
+                }
             },
+            components: {
+                com1: {
+                    data() {
+                        return {
+                            arg: 234
+                        }
+                    },
+                    methods: {
+                        f() {
+                            // emit 触发的意思
+                            this.$emit('func', this.arg)
+                        }
+                    },
+                    template: `<button type="button" class="btn btn-primary" @click="f">click</button>`
+                }
+            }
         })
     </script>
 </body>

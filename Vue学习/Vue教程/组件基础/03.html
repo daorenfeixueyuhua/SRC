@@ -13,7 +13,8 @@
 
 <body>
     <div id="app">
-
+        <!-- 使用component完成学学生信息管理 -->
+        <infoManger-component></infoManger-component>
     </div>
     <script>
         var vm = new Vue({
@@ -26,8 +27,66 @@
                 helle() {
                     return 'Hello'
                 },
-
             },
+
+            comments: {
+                'infoManger-component': {
+                    props: [],
+                    data() {
+                        return {
+                            id: '2',
+                            name: '彭达',
+                            sex: '',
+                            key: '',
+                        }
+                    },
+                    methods: {
+                        add() {
+                            console.log('点击添加')
+                        },
+                        reach() {
+                            console.log('查询')
+                        }
+                    },
+                    directives: [{
+                        focus: {
+                            // 指令的定义
+                            inserted: function (el) {
+                                el.focus()
+                            }
+                        }
+                    },
+                    {
+                        color: {
+                            bind: function (el, binding) {
+                                el.style.backgroundColor = binding.value
+                            }
+                        }
+                    }],
+                    template: `
+        <div id="infoManger">
+            <label>
+                学号： <input v-model="id" type="text" />
+            </label>
+            <label>
+                姓名: <input v-model="name" type="text" />
+            </label>
+            <label>
+                性别：
+                <input v-model="sex" type="radio" value="男" />男
+                <input v-model="sex" type="radio" value="女" />女
+            </label>
+            <label>
+                <input type="button" value="添加" @click="add()">
+            </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>
+                关键字： <input v-model="key" type="text" @click="reach()" v-focus="" v-color="'pink'" />
+            </span>
+        </div>`
+                }
+            }
+
         })
     </script>
 </body>

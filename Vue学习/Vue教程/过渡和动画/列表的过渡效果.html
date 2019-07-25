@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- 第三方动画css库 -->
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <style>
+        .list-item {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .list-enter-active,
+        .list-leave-active {
+            transition: all 1s;
+        }
+
+        .list-enter,
+        .list-leave-to
+
+        /* .list-leave-active for below version 2.1.8 */
+            {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Active pill</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pill</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled pill</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div class="card-body">
+                <div class="alert alert-primary" role="alert">
+                    <strong>学生信息管理</strong>
+                </div>
+
+                <div class="form-group">
+                    <label>学号</label>
+                    <input type="text" v-model="id">
+                    <label>姓名</label>
+                    <input type="text" v-model="name">
+                    <label>成绩</label>
+                    <input type="text" v-model="score">
+                    <button type="button" class="btn btn-primary" @click="add">添加</button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>成绩</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <transition name="list" tag="p">
+                            <tr v-for="(item, index) in list" :key="index">
+                                <td scope="row">{{item.id}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.score}}</td>
+                                <th><a name="" id="" class="btn btn-primary" href="#" role="button"
+                                        @click.parent="remove(index)">删除</a></th>
+                            </tr>
+                        </transition>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello',
+                id: '',
+                name: '',
+                score: '',
+                list: [
+                    { id: '101', name: '彭达', score: 99.0 },
+                    { id: '102', name: '王你大爷', score: 69.0 },
+                    { id: '103', name: '天才', score: 100.0 },
+
+                ]
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+                add() {
+                    this.list.push({ id: this.id, name: this.name, score: this.score })
+                    this.id = ''
+                    this.name = ''
+                    this.score = ''
+                },
+                remove(index) {
+                    this.list.splice(index, 1)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

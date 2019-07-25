@@ -13,35 +13,22 @@
 
 <body>
     <div id="app">
-        <blog-post v-for="post in posts" :key="post.id" :post="post" :content="post.content"></blog-post>
+        <input type="button" value="get请求" :click="getInfo">
     </div>
     <script>
-        Vue.component('blog-post', {
-            props: ['post'],
-            data: function () {
-
-            },
-            template: `
-                < div id="blog-post" >
-                <h3>{{ post.title }}</h3>
-                <p>{{post.content}}</p>
-                </div>
-                `
-        })
         var vm = new Vue({
             el: '#app',
             data: {
                 msg: 'Hello',
-                posts: [
-                    { id: 1, title: 'Hello', content: '我是你爸爸' },
-                    { id: 2, title: 'Love', content: '我是你爸爸' },
-                ]
+
             },
             methods: {
                 helle() {
                     return 'Hello'
                 },
+                getInfo() {
 
+                },
             },
         })
     </script>
