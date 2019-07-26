@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>初始化页面</title>
+    <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
@@ -16,7 +16,11 @@
 
 <body>
     <div id="app">
-
+        <p>
+            Ask a yes/no question:
+            <input type="text" v-model="question">
+        </p>
+        <p>{{question}}: {{answer}}</p>
     </div>
     <script>
         var vm = new Vue({
@@ -24,7 +28,20 @@
             data() {
                 return {
                     msg: 'hello, I am your dady',
+                    question: '',
+                    answer: 'I cannot give you an answe until you ask a question!'
                 }
+            },
+            watch: {
+                question: function (newQuestion, oldQuestion) {
+                    console.log(newQuestion);
+                    console.log(oldQuestion);
+                    this.answe = 'Waiting for you to stop typing...'
+                    this.debouncedGetAnswer()
+                }
+            },
+            created() {
+                this.debouncedGetAnswer = _.debounce('', 500)
             },
             methods: {
                 helle() {

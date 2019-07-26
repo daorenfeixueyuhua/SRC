@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../../../lib/js/vue-router.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- 第三方动画css库 -->
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <style>
+        /* 路由高亮 */
+        .router-link-active {
+            color: red;
+            font-weight: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <a href="#/login">登陆</a> -->
+        <!-- <a href="#/register">注册</a> -->
+        <router-link to="/login">登陆</router-link>
+        <router-link to="/register">注册</router-link>
+
+        <!-- 用作占位符，将来放置由路由匹配到的组件 -->
+        <!-- 路由切换使用动画，并设定动模式：out-in 先出后进 -->
+        <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" mode="out-in">
+            <router-view>
+            </router-view>
+        </transition>
+        {{msg}}
+    </div>
+    <script>
+        const login = {
+            template: '<h1>登陆啊<h2>'
+        }
+        const register = {
+            template: '<h1>注册啊<h2>'
+        }
+        // 注册路由
+        const routerObj = new VueRouter({
+            // 路由匹配规则
+            routes: [
+                {
+                    path: '/',
+                    // 重定向至么个页面
+                    redirect: '/login',
+                },
+                {
+                    // 监听路由链接地址
+                    path: '/login',
+                    // 展示相应的组件: 放置组件模板对象，不能时组件的引用名称
+                    component: login
+                },
+                {
+                    path: '/register',
+                    component: register
+                }
+            ]
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    msg: 'hello, I am your dady',
+                }
+            },
+            methods: {
+                helle() {
+                    return 'Hello'
+                },
+
+            },
+            // 将路由注册道vm实例上
+            router: routerObj,
+            // 监听路由
+            watch: {
+                '$route.path': function (newValue, oldValue) {
+                    console.log(newValue + ' ' + oldValue);
+                    if (newValue == '/login') {
+                        this.msg = '欢迎进入登陆界面'
+                    } else if (newValue == '/register') {
+                        this.msg = '欢迎进入注册界面'
+                    }
+                }
+
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>初始化页面</title>
+    <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
@@ -16,7 +16,9 @@
 
 <body>
     <div id="app">
-
+        <input type="text" v-model="v1">+
+        <input type="text" v-model="v2">=
+        <input type="text" v-model="v3">
     </div>
     <script>
         var vm = new Vue({
@@ -24,13 +26,20 @@
             data() {
                 return {
                     msg: 'hello, I am your dady',
+                    v1: '',
+                    v2: '',
                 }
             },
             methods: {
                 helle() {
-                    return 'Hello'
+                    return 'Hello',
                 },
-
+                computed: {
+                    // 计算属性，当函数内部所使用的data值改变的时候，会引起计算属性的重新求值
+                    v3: function () {
+                        return this.v1 + '-----' + this.v2
+                    }
+                },
             },
         })
     </script>
