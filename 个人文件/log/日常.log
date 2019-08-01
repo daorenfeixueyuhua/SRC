@@ -1,12 +1,38 @@
-2019-06-17 安装loadrunner失败：原因：管理员阻止安装该应用。
-2019-06-17 运行出现异常： Packet for query is too large ：解决方案：
-2019-06-18 jdbc运行错误：java.sql.SQLException: The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more 
+2019/06/17 安装loadrunner失败：原因：管理员阻止安装该应用。
+2019/06/17 运行出现异常： Packet for query is too large ：解决方案：
+2019/06/18 jdbc运行错误：java.sql.SQLException: The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more 
     解决方案：url="jdbc:mysql://localhost:3306/task14?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false"
 
 
-2019-06-18 No operations allowed after connection closed. 错误 原因：Jdbc工具类中connection为静态资源，调用了close()就关闭了，再次使用就报错了
+2019/06/18 No operations allowed after connection closed. 错误 原因：Jdbc工具类中connection为静态资源，调用了close()就关闭了，再次使用就报错了
     解决方案：重写jdbc工具类
-2019-06-26 jsp访问css 404 错误 
+2019/06/26 jsp访问css 404 错误 
     提示1：可能是ajax使用得跨域问题
 
 2019/06/26 表未点击提交按钮就自行提交
+
+2019/07/26 学习vue基础知识结束，学习暂停至：https://www.bilibili.com/video/av50680998/?p=126 等待后续有需求再更进一步学习
+
+2019/07/30 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". 报错
+    解决方案：引入依赖
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+        
+2019/08/01 Socket编程学习：https://www.bilibili.com/video/av47306514
+
+2019/08/01 智慧管网：算法需求：
+
+    传感器模式更改：由浮力球获取信号：
+                        可能获取到1，2，3个信号
+    
+    需要建立硬件模型：磁力探针的模型设计
+                    
+                    异常判断算法
+
+    计划：
+        1. 接入数据
+        2. 计算出水流量
+        3. 
