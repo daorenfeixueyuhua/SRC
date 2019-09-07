@@ -14,3 +14,6 @@ C++/out/test.exe
 Algorithm/Contest/CodeForces/.idea/*
 个人文件/我的日记/*
 Algorithm/Contest/CodeForces/.idea/*
+.*
+# ignore 所有.开头的文件
+*/.*
