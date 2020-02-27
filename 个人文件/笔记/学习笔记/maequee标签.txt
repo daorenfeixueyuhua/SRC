@@ -1,6 +1,6 @@
-<marquee>±êÇ©µÄÊôÐÔ¼°ËµÃ÷
-ÊôÐÔ		ËµÃ÷
-align		ÄÚÈÝµÄ¶ÔÆë£ºtop£¨¶¥¶Ë¶ÔÆë£©middle£¨¾ÓÖÐ¶ÔÆë£©bottom£¨ÏòÏÂ¶ÔÆë£©
-direction	¹ö¶¯·½Ïò£ºup£¨ÏòÉÏ£©down£¨ÏòÏÂ£©left£¨Ïò×ó£©right£¨ÏòÓÒ£©
-behavior	¹ö¶¯·½Ê½£ºscroll£¨Ñ­»·¹ö¶¯£©silde£¨Ò»´Î¹ö¶¯£©alternate£¨½»Ìæ¹ö¶¯£©
-loop		Ñ­»·¹ö¶¯´ÎÊý£º-1or Infinite	ÎÞÏÞ´ÎÑ­»·
+<marquee>æ ‡ç­¾çš„å±žæ€§åŠè¯´æ˜Ž
+å±žæ€§		è¯´æ˜Ž
+align		å†…å®¹çš„å¯¹é½ï¼štopï¼ˆé¡¶ç«¯å¯¹é½ï¼‰middleï¼ˆå±…ä¸­å¯¹é½ï¼‰bottomï¼ˆå‘ä¸‹å¯¹é½ï¼‰
+direction	æ»šåŠ¨æ–¹å‘ï¼šupï¼ˆå‘ä¸Šï¼‰downï¼ˆå‘ä¸‹ï¼‰leftï¼ˆå‘å·¦ï¼‰rightï¼ˆå‘å³ï¼‰
+behavior	æ»šåŠ¨æ–¹å¼ï¼šscrollï¼ˆå¾ªçŽ¯æ»šåŠ¨ï¼‰sildeï¼ˆä¸€æ¬¡æ»šåŠ¨ï¼‰alternateï¼ˆäº¤æ›¿æ»šåŠ¨ï¼‰
+loop		å¾ªçŽ¯æ»šåŠ¨æ¬¡æ•°ï¼š-1or Infinite	æ— é™æ¬¡å¾ªçŽ¯
