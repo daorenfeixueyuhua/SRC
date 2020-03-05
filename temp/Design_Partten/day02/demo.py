@@ -11,10 +11,9 @@
 #   scores[10]
 #   name
 #   id
-#   final_score[4]
-#   ranking[4]
+#   final_score
+#   ranking
 #   __str__
-import numpy
 import random
 
 NUMBERS_PLAYER = 10
