@@ -8,6 +8,8 @@ import scrapy
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.exceptions import DropItem
 import os
+import codecs
+import json
 from .settings import IMAGES_STORE, ITEM_STORE
 
 
@@ -21,19 +23,30 @@ class Bt7086Pipeline(ImagesPipeline):
         if not image_paths:
             raise DropItem("Item contains no images")
         # 重命名
-        dir = IMAGES_STORE + item['title'] + '/'
+        dir = IMAGES_STORE + item['cur_time'][0:10:] + '/'
+        if os.path.exists(dir) == False:
+            os.mkdir(dir)
+        dir = dir + item['title'] + '/'
         if os.path.exists(dir) == False:
             os.mkdir(dir)
         os.rename(IMAGES_STORE+image_paths[0],
                   dir + str(item['index']) + '.jpg')
         item['image_paths'] = dir + str(item['index']) + '.jpg'
         # 此处需要考虑，将item信息进行保存
-
         return item
 
-    def save_item(item):
-        item_json = open('save_item_data.json',
-                         mode='a', encoding='UTF-8')
-        json.dump(item, item_json, ensure_ascii=False)
-        item_json.close()
-        pass
+
+# class Bt7086JSONPipeline(object):
+#     def process_item(self, item, spider):
+#         filename = ITEM_STORE + 'file/'
+#         if os.path.exists(filename) is False:
+#             os.mkdir(filename)
+#             # 打开json文件，向里面以dumps的方式吸入数据
+#             # 注意需要有一个参数ensure_ascii=False ，不然数据会直接为utf编码的方式存入比如
+#             # :“/xe15”
+#         filename = filename + item['cur_time'][0:10:] + '.json'
+#         with codecs.open(filename, 'a+') as f:
+#             line = json.dumps(dict(item), ensure_ascii=False) + '\n'
+#             f.write(line)
+#             f.write(',')
+#         yield item
