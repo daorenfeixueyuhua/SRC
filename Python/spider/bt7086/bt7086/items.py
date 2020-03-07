@@ -14,5 +14,6 @@ class Bt7086Item(scrapy.Item):
     title = scrapy.Field()
     image_urls = scrapy.Field()
     image_paths = scrapy.Field()
+    cur_time = scrapy.Field()
     index = scrapy.Field()
     pass

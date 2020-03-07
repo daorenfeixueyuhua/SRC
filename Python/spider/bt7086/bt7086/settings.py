@@ -12,11 +12,12 @@
 BOT_NAME = 'bt7086'
 
 IMAGES_STORE = 'C:\sources\\bt7086\img/'
-ITEM_STORE = 'C:\sources\\bt7086\item.json'
+ITEM_STORE = 'C:\sources\\bt7086/'
 
 SPIDER_MODULES = ['bt7086.spiders']
 NEWSPIDER_MODULE = 'bt7086.spiders'
 
+DOWNLOAD_FAIL_ON_DATALOSS = False
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'bt7086 (+http://www.yourdomain.com)'
@@ -69,6 +70,8 @@ ROBOTSTXT_OBEY = False
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'bt7086.pipelines.Bt7086Pipeline': 300,
+    # 测试失败，还是无法进行保存
+    # 'bt7086.pipelines.Bt7086JSONPipeline': 400,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
