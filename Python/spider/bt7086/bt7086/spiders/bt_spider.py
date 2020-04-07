@@ -15,10 +15,11 @@ class BtSpiderSpider(scrapy.Spider):
 
     format = "%Y-%m-%d %H:%M"
     # start_time = datetime.datetime.now().strftime(format)
-    start_time = '2020-03-04 00:00:00'
-    end_time = '2020-03-05 00:00:00'
+    start_time = '2020-03-08 00:00:00'
+    end_time = '2020-03-09 00:00:00'
 
     # 无法获取 2020-03-04 的图片
+    # 很是迷茫，只能获取当天、前一天的资源，更早的资源无法获取。
 
     img_base_url = 'http://p3.csgfnmdb.xyz/pw/'
 

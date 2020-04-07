@@ -26,5 +26,5 @@ class HjdSpiderPipeline(ImagesPipeline):
             os.mkdir(dir)
         os.rename(IMAGES_STORE+image_paths[0],
                   dir + str(item['index']) + '.jpg')
-        item['image_paths'] = image_paths[0]
+        item['image_paths'] = dir + str(item['index']) + '.jpg'
         return item

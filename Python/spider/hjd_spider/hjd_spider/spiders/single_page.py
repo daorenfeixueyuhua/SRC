@@ -7,7 +7,7 @@ class SinglePageSpider(scrapy.Spider):
     name = 'single_page'
     allowed_domains = ['http://hjd.niao2048.biz/']
     start_urls = [
-        'http://hjd.niao2048.biz/2048/read.php?tid-1857427-fpage-3.html']
+        'http://hjd.niao2048.biz/2048/read.php?tid-1865766-keyword-%E5%94%AF%E7%BE%8E.html']
 
     def parse(self, response):
         # 获取图片的链接

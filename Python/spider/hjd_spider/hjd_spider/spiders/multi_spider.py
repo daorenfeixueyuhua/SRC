@@ -7,11 +7,11 @@ class MultiSpiderSpider(scrapy.Spider):
     name = 'multi_spider'
     allowed_domains = ['https://hjd.niao2048.biz/']
     start_urls = [
-        'https://hjd.niao2048.biz/2048/thread.php?fid-23.html/']
+        'http://hjd.niao2048.biz/2048/thread.php?fid-24s-page-3.html']
     next_base_url = 'https://hjd.niao2048.biz/2048/thread.php?fid-23s-page-'
-    
-    page_index = 2
-    page_max = 2
+
+    page_index = 4
+    page_max = 3
 
     img_base_url = 'https://hjd.niao2048.biz/2048/'
 
