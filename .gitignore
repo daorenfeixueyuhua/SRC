@@ -1,19 +1,13 @@
 C&C++/out/test.exe
 C&C++/out/*
-.vscode/c_cpp_properties.json
-.vscode/launch.json
-.vscode/settings.json
-.vscode/tasks.json
-.gitignore
-.vscode/ipch/16aca7c84265fd02/TEST_CASE_USER.ipch
-.vscode/ipch/16aca7c84265fd02/mmap_address.bin
-.vscode/ipch/a2f11a96b3b482a4/mmap_address.bin
+!.gitignore
 .vscode/*
 C++/out/*
-C++/out/test.exe
 Algorithm/Contest/CodeForces/.idea/*
 个人文件/我的日记/*
-Algorithm/Contest/CodeForces/.idea/*
 .*
 # ignore 所有.开头的文件
 */.*
+*.pyc
+*.exe
+*.cpython-37.pyc
