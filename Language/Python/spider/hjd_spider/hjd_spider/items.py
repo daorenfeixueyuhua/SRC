@@ -11,8 +11,21 @@ import scrapy
 class HjdSpiderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    # 第一级标题
+    first_title = scrapy.Field()
+    # 第二级标题
+    second_title = scrapy.Field()
+    # 第三级标题
+    third_title = scrapy.Field()
+    # 图片标题
     title = scrapy.Field()
+    # picture dowmload path
     image_urls = scrapy.Field()
+    # pitcure dir
     image_paths = scrapy.Field()
+    # picture index
     index = scrapy.Field()
-    pass
+    # picture update time
+    time = scrapy.Field()
+    # page index
+    page = scrapy.Field()
