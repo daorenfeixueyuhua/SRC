@@ -52,6 +52,6 @@ def view_file(dir):
 
 
 if __name__ == "__main__":
-            # list_dir()
-            # into_dir(IMAGES_STORE)
+    # list_dir()
+    # into_dir(IMAGES_STORE)
     print('delete file ', view_file(IMAGES_STORE))
