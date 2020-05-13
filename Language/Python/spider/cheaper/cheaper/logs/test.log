@@ -1,0 +1,10 @@
+当start_start_urls过多（大于1个时）时就会出现一下抱错：
+ Connection to the other side was lost in a non-clean fashion.
+ Connection was closed cleanly
+ start_urls 里只能有一个
+TCPTimedOutError: TCP connection timed out: 10060:
+
+start_urls的大小大于2时，第一个相应存在问题，建议添加一个测试相应
+
+TCP connection timed out: 10060 考虑使用IP代理
+

@@ -1,0 +1,1426 @@
+2020-05-13 14:06:04 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:06:04 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:06:04 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:06:04 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:06:07 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:06:07 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:06:07 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:06:07 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:06:07 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:06:07 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2020-05-13 14:06:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:06:07 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:06:07 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:06:08 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.buxiuse.com/?page=1> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\parsel\selector.py", line 238, in xpath
+    **kwargs)
+  File "src/lxml/etree.pyx", line 1583, in lxml.etree._Element.xpath
+  File "src/lxml/xpath.pxi", line 305, in lxml.etree.XPathElementEvaluator.__call__
+  File "src/lxml/xpath.pxi", line 225, in lxml.etree._XPathEvaluatorBase._handle_result
+lxml.etree.XPathEvalError: Invalid expression
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 30, in process_spider_output
+    for x in result:
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\Lenovo\OneDrive\Projects\SRC\Language\Python\spider\buxiuse\buxiuse\spiders\buxiuse_spider.py", line 45, in parse
+    selector.xpath('//')
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\parsel\selector.py", line 242, in xpath
+    six.reraise(ValueError, ValueError(msg), sys.exc_info()[2])
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\six.py", line 695, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\parsel\selector.py", line 238, in xpath
+    **kwargs)
+  File "src/lxml/etree.pyx", line 1583, in lxml.etree._Element.xpath
+  File "src/lxml/xpath.pxi", line 305, in lxml.etree.XPathElementEvaluator.__call__
+  File "src/lxml/xpath.pxi", line 225, in lxml.etree._XPathEvaluatorBase._handle_result
+ValueError: XPath error: Invalid expression in //
+2020-05-13 14:06:08 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:06:08 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 6, 8, 68215),
+ 'log_count/DEBUG': 2,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'spider_exceptions/ValueError': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 6, 7, 211503)}
+2020-05-13 14:06:08 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:09:42 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:09:42 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:09:42 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:09:42 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:09:45 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:09:45 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:09:45 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:09:45 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:09:45 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:09:45 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:09:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:09:46 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:09:46 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:09:46 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:09:46 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 9, 46, 284335),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 9, 45, 713858)}
+2020-05-13 14:09:46 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:22:11 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:22:11 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:22:11 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:22:11 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:22:14 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:22:14 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:22:14 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:22:14 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:22:14 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:22:14 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:22:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:22:15 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:22:15 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:22:15 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:22:15 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 22, 15, 243842),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 22, 14, 502788)}
+2020-05-13 14:22:15 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:24:56 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:24:56 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:24:56 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:24:56 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:24:59 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:24:59 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:24:59 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:24:59 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:24:59 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:24:59 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:25:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:25:00 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:25:00 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:25:00 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:25:00 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 25, 0, 266585),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 24, 59, 668188)}
+2020-05-13 14:25:00 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:26:14 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:26:14 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:26:14 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:26:14 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:26:17 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:26:17 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:26:17 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:26:17 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:26:17 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:26:17 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:26:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:26:18 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:26:18 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:26:18 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:26:18 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 26, 18, 78173),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 26, 17, 452804)}
+2020-05-13 14:26:18 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:30:27 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:30:27 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:30:27 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:30:27 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:30:30 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:30:30 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:30:30 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:30:30 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:30:30 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:30:30 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:30:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:30:31 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:30:31 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:30:31 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.buxiuse.com/?page=1> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 30, in process_spider_output
+    for x in result:
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\Lenovo\OneDrive\Projects\SRC\Language\Python\spider\buxiuse\buxiuse\spiders\buxiuse_spider.py", line 53, in parse
+    title = tmp[0].split('"')[1]
+IndexError: list index out of range
+2020-05-13 14:30:31 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:30:31 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 30, 31, 157016),
+ 'log_count/DEBUG': 2,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'spider_exceptions/IndexError': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 30, 30, 543657)}
+2020-05-13 14:30:31 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:32:53 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:32:53 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:32:53 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:32:53 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:32:56 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:32:56 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:32:56 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:32:56 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:32:56 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:32:56 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:32:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:32:56 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:32:56 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:32:56 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:32:56 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 32, 56, 908510),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 32, 56, 249273)}
+2020-05-13 14:32:56 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:33:39 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:33:39 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:33:39 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:33:39 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:33:41 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:33:41 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:33:41 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:33:41 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:33:41 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:33:41 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:33:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:33:42 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:33:42 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:33:42 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:33:42 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 33, 42, 518465),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 33, 41, 955969)}
+2020-05-13 14:33:42 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:34:31 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:34:31 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:34:31 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:34:31 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:34:34 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:34:34 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:34:34 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:34:34 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:34:34 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:34:34 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:34:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:34:34 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:34:34 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:34:34 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:34:34 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 34, 34, 892873),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 34, 34, 301455)}
+2020-05-13 14:34:34 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:35:20 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:35:20 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:35:20 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:35:21 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:35:23 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:35:23 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:35:23 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:35:23 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:35:23 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:35:23 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:35:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:35:24 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:35:24 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:35:24 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.buxiuse.com/?page=1> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 30, in process_spider_output
+    for x in result:
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\Lenovo\OneDrive\Projects\SRC\Language\Python\spider\buxiuse\buxiuse\spiders\buxiuse_spider.py", line 54, in parse
+    title = tmp[0].split('"')[1].split('#')[1]
+IndexError: list index out of range
+2020-05-13 14:35:24 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:35:24 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 35, 24, 344627),
+ 'log_count/DEBUG': 2,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'spider_exceptions/IndexError': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 35, 23, 760189)}
+2020-05-13 14:35:24 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:36:37 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:36:37 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:36:37 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:36:38 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:36:40 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:36:40 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:36:40 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:36:40 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:36:40 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:36:40 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:36:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:36:41 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:36:41 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:36:41 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:36:41 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 36, 41, 275744),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 36, 40, 725215)}
+2020-05-13 14:36:41 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:37:17 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:37:17 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:37:17 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:37:17 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:37:20 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:37:20 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:37:20 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:37:20 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:37:20 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:37:20 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:37:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:37:20 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:37:20 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:37:20 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:37:20 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 37, 20, 813826),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 37, 20, 236411)}
+2020-05-13 14:37:20 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:47:24 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:47:24 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:47:24 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:47:24 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:47:26 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:47:26 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:47:26 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:47:26 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:47:26 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:47:26 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:47:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:47:27 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:47:27 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:47:27 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:47:27 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 47, 27, 708318),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 47, 26, 974282)}
+2020-05-13 14:47:27 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:48:33 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:48:33 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:48:33 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:48:33 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:48:36 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:48:36 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:48:36 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:48:36 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:48:36 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:48:36 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:48:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:48:36 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:48:36 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:48:37 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:48:37 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 48, 37, 3985),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 48, 36, 413522)}
+2020-05-13 14:48:37 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:49:09 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:49:09 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:49:09 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:49:09 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:49:12 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:49:12 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:49:12 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:49:12 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:49:12 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:49:12 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:49:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:49:12 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:49:12 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:49:12 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:49:12 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 49, 12, 920080),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 49, 12, 344620)}
+2020-05-13 14:49:12 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:49:38 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:49:38 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:49:38 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:49:38 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:49:40 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:49:40 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:49:40 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:49:40 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:49:40 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:49:40 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:49:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:49:41 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:49:41 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:49:41 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:49:41 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 49, 41, 329558),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 49, 40, 736181)}
+2020-05-13 14:49:41 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:51:21 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:51:21 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:51:21 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:51:21 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:51:23 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:51:23 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:51:23 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:51:23 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:51:23 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:51:23 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:51:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:51:24 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:51:24 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:51:24 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:51:24 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 51, 24, 790532),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 51, 23, 896921)}
+2020-05-13 14:51:24 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 14:53:43 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 14:53:43 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 14:53:43 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 14:53:43 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 14:53:46 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 14:53:46 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 14:53:46 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2020-05-13 14:53:46 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 14:53:46 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 14:53:46 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 14:53:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 14:53:47 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 14:53:47 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 14:53:47 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 14:53:47 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 295,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4409,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 6, 53, 47, 274023),
+ 'log_count/DEBUG': 2,
+ 'log_count/INFO': 9,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 6, 53, 46, 674668)}
+2020-05-13 14:53:47 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 15:01:22 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 15:01:22 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 15:01:22 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 15:01:22 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 15:01:25 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 15:01:25 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 15:01:25 [scrapy.middleware] INFO: Enabled item pipelines:
+['buxiuse.pipelines.BuxiusePipeline']
+2020-05-13 15:01:25 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 15:01:25 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 15:01:25 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 15:01:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 15:01:26 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 15:01:26 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 15:01:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ul46cf8j30u00sf446.jpg> (referer: None)
+2020-05-13 15:01:26 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ul46cf8j30u00sf446.jpg> referred in <None>
+2020-05-13 15:01:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3uuafj30ty11642g.jpg> (referer: None)
+2020-05-13 15:01:26 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3uuafj30ty11642g.jpg> referred in <None>
+2020-05-13 15:01:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3olthj30u00gvt9x.jpg> (referer: None)
+2020-05-13 15:01:26 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3olthj30u00gvt9x.jpg> referred in <None>
+2020-05-13 15:01:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um3vc9hj30u0140wi6.jpg> (referer: None)
+2020-05-13 15:01:26 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um3vc9hj30u0140wi6.jpg> referred in <None>
+2020-05-13 15:01:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukxm6w0j30u00uo45o.jpg> (referer: None)
+2020-05-13 15:01:26 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukxm6w0j30u00uo45o.jpg> referred in <None>
+2020-05-13 15:01:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um9ustyj30u011i79w.jpg> (referer: None)
+2020-05-13 15:01:26 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um9ustyj30u011i79w.jpg> referred in <None>
+2020-05-13 15:01:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4umydfl8j30u013xafb.jpg> (referer: None)
+2020-05-13 15:01:26 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4umydfl8j30u013xafb.jpg> referred in <None>
+2020-05-13 15:01:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/抱抱我1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ul46cf8j30u00sf446.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '抱抱我1'}
+2020-05-13 15:01:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/睡不着觉1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3uuafj30ty11642g.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '睡不着觉1'}
+2020-05-13 15:01:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/睡不着觉2.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3olthj30u00gvt9x.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '睡不着觉2'}
+2020-05-13 15:01:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/我可真TMD无聊啊1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um3vc9hj30u0140wi6.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '我可真TMD无聊啊1'}
+2020-05-13 15:01:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/嗯哼1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukxm6w0j30u00uo45o.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '嗯哼1'}
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2op6vj30u00hljsw.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2op6vj30u00hljsw.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/差点都忘了豆瓣账号😂1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um9ustyj30u011i79w.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '差点都忘了豆瓣账号😂1'}
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ulxu1bgj30u013xad4.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ulxu1bgj30u013xad4.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2g8qzj30tm12ldmo.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2g8qzj30tm12ldmo.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/发张照片就跑1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4umydfl8j30u013xafb.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '发张照片就跑1'}
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukfnz48j30u0140dov.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukfnz48j30u0140dov.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um4322mj30u01hc42q.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um4322mj30u01hc42q.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoic4ixj30ku0rstaw.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoic4ixj30ku0rstaw.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ur68c7ej30u013ugsa.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ur68c7ej30u013ugsa.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uls4dk5j30u0140q6u.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uls4dk5j30u0140q6u.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uma252tj30u01330xh.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uma252tj30u01330xh.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/睡不着1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2op6vj30u00hljsw.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '睡不着1'}
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/喜欢吗？2.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ulxu1bgj30u013xad4.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '喜欢吗？2'}
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/温泉也不开门了1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2g8qzj30tm12ldmo.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '温泉也不开门了1'}
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/41.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukfnz48j30u0140dov.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '41'}
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/【你喜欢深蓝色吗？】1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um4322mj30u01hc42q.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '【你喜欢深蓝色吗？】1'}
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uob04jmj30u00mijsn.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uob04jmj30u00mijsn.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/找男朋友1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoic4ixj30ku0rstaw.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '找男朋友1'}
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoamhxwj30u00nndip.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoamhxwj30u00nndip.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uow0uinj30u00z5wkc.jpg> (referer: None)
+2020-05-13 15:01:27 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uow0uinj30u00z5wkc.jpg> referred in <None>
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/周末想约人出去走走1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ur68c7ej30u013ugsa.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '周末想约人出去走走1'}
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/喜欢吗？1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uls4dk5j30u0140q6u.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '喜欢吗？1'}
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/现在已经拍不出这种效果了，呜呜1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uma252tj30u01330xh.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '现在已经拍不出这种效果了，呜呜1'}
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/蒸一起变优秀的伙伴1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uob04jmj30u00mijsn.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '蒸一起变优秀的伙伴1'}
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/蒸一起变优秀的伙伴2.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoamhxwj30u00nndip.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '蒸一起变优秀的伙伴2'}
+2020-05-13 15:01:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/怎么样1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uow0uinj30u00z5wkc.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '怎么样1'}
+2020-05-13 15:01:27 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 15:01:27 [scrapy.extensions.feedexport] INFO: Stored json feed (19 items) in: ../resources/2020-05-13.json
+2020-05-13 15:01:27 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method BuxiuseSpiderSpider.close of <BuxiuseSpiderSpider 'buxiuse_spider' at 0x2a12741fb88>>
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\twisted\internet\defer.py", line 151, in maybeDeferred
+    result = f(*args, **kw)
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\pydispatch\robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "C:\Users\Lenovo\OneDrive\Projects\SRC\Language\Python\spider\buxiuse\buxiuse\spiders\buxiuse_spider.py", line 44, in close
+    spider.client.sadd(spider.complete_key, spider.complete_values)
+  File "C:\Users\Lenovo\OneDrive\Projects\SRC\Language\Python\spider\buxiuse\buxiuse\tool\redis_tool.py", line 14, in sadd
+    self.__client.sadd(key, i)
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\redis\client.py", line 2243, in sadd
+    return self.execute_command('SADD', name, *values)
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\redis\client.py", line 900, in execute_command
+    conn.send_command(*args)
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\redis\connection.py", line 716, in send_command
+    self.send_packed_command(self.pack_command(*args),
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\redis\connection.py", line 766, in pack_command
+    for arg in imap(self.encoder.encode, args):
+  File "C:\Users\Lenovo\.conda\envs\en1\lib\site-packages\redis\connection.py", line 120, in encode
+    "bytes, string, int or float first." % typename)
+redis.exceptions.DataError: Invalid input of type: 'BuxiuseItem'. Convert to a bytes, string, int or float first.
+2020-05-13 15:01:27 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 6603,
+ 'downloader/request_count': 20,
+ 'downloader/request_method_count/GET': 20,
+ 'downloader/response_bytes': 648219,
+ 'downloader/response_count': 20,
+ 'downloader/response_status_count/200': 20,
+ 'file_count': 19,
+ 'file_status_count/downloaded': 19,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 7, 1, 27, 417413),
+ 'item_scraped_count': 19,
+ 'log_count/DEBUG': 59,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'response_received_count': 20,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 7, 1, 25, 407788)}
+2020-05-13 15:01:27 [scrapy.core.engine] INFO: Spider closed (finished)
+2020-05-13 15:06:50 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: buxiuse)
+2020-05-13 15:06:50 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 2.8, Platform Windows-10-10.0.18362-SP0
+2020-05-13 15:06:50 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'buxiuse', 'FEED_FORMAT': 'json', 'FEED_URI': '../resources/2020-05-13.json', 'LOG_FILE': '../resources/2020-05-13.log', 'NEWSPIDER_MODULE': 'buxiuse.spiders', 'SPIDER_MODULES': ['buxiuse.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+2020-05-13 15:06:50 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2020-05-13 15:06:53 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-05-13 15:06:53 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-05-13 15:06:53 [scrapy.middleware] INFO: Enabled item pipelines:
+['buxiuse.pipelines.BuxiusePipeline']
+2020-05-13 15:06:53 [scrapy.core.engine] INFO: Spider opened
+2020-05-13 15:06:53 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-05-13 15:06:53 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2020-05-13 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.buxiuse.com/?page=1> (referer: None)
+2020-05-13 15:06:54 [buxiuse_spider] INFO: 访问：https://www.buxiuse.com/?page=1
+2020-05-13 15:06:54 [buxiuse_spider] INFO: 获取页面https://www.buxiuse.com/?page=1中的图片链接
+2020-05-13 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3uuafj30ty11642g.jpg> (referer: None)
+2020-05-13 15:06:54 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3uuafj30ty11642g.jpg> referred in <None>
+2020-05-13 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3olthj30u00gvt9x.jpg> (referer: None)
+2020-05-13 15:06:54 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3olthj30u00gvt9x.jpg> referred in <None>
+2020-05-13 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um9ustyj30u011i79w.jpg> (referer: None)
+2020-05-13 15:06:54 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um9ustyj30u011i79w.jpg> referred in <None>
+2020-05-13 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4umydfl8j30u013xafb.jpg> (referer: None)
+2020-05-13 15:06:54 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4umydfl8j30u013xafb.jpg> referred in <None>
+2020-05-13 15:06:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/睡不着觉1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3uuafj30ty11642g.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '睡不着觉1'}
+2020-05-13 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoic4ixj30ku0rstaw.jpg> (referer: None)
+2020-05-13 15:06:54 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoic4ixj30ku0rstaw.jpg> referred in <None>
+2020-05-13 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ul46cf8j30u00sf446.jpg> (referer: None)
+2020-05-13 15:06:54 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ul46cf8j30u00sf446.jpg> referred in <None>
+2020-05-13 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um3vc9hj30u0140wi6.jpg> (referer: None)
+2020-05-13 15:06:54 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um3vc9hj30u0140wi6.jpg> referred in <None>
+2020-05-13 15:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukxm6w0j30u00uo45o.jpg> (referer: None)
+2020-05-13 15:06:54 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukxm6w0j30u00uo45o.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/睡不着觉2.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uo3olthj30u00gvt9x.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '睡不着觉2'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/差点都忘了豆瓣账号😂1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um9ustyj30u011i79w.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '差点都忘了豆瓣账号😂1'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/发张照片就跑1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4umydfl8j30u013xafb.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '发张照片就跑1'}
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2g8qzj30tm12ldmo.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2g8qzj30tm12ldmo.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/找男朋友1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoic4ixj30ku0rstaw.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '找男朋友1'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/抱抱我1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ul46cf8j30u00sf446.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '抱抱我1'}
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2op6vj30u00hljsw.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2op6vj30u00hljsw.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ur68c7ej30u013ugsa.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ur68c7ej30u013ugsa.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/我可真TMD无聊啊1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um3vc9hj30u0140wi6.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '我可真TMD无聊啊1'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/嗯哼1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukxm6w0j30u00uo45o.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '嗯哼1'}
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uls4dk5j30u0140q6u.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uls4dk5j30u0140q6u.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukfnz48j30u0140dov.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukfnz48j30u0140dov.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ulxu1bgj30u013xad4.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ulxu1bgj30u013xad4.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uma252tj30u01330xh.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uma252tj30u01330xh.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um4322mj30u01hc42q.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um4322mj30u01hc42q.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/温泉也不开门了1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2g8qzj30tm12ldmo.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '温泉也不开门了1'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/睡不着1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4up2op6vj30u00hljsw.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '睡不着1'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/周末想约人出去走走1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ur68c7ej30u013ugsa.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '周末想约人出去走走1'}
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uow0uinj30u00z5wkc.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uow0uinj30u00z5wkc.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/喜欢吗？1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uls4dk5j30u0140q6u.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '喜欢吗？1'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/41.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ukfnz48j30u0140dov.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '41'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/喜欢吗？2.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4ulxu1bgj30u013xad4.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '喜欢吗？2'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/现在已经拍不出这种效果了，呜呜1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uma252tj30u01330xh.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '现在已经拍不出这种效果了，呜呜1'}
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uob04jmj30u00mijsn.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uob04jmj30u00mijsn.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoamhxwj30u00nndip.jpg> (referer: None)
+2020-05-13 15:06:55 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoamhxwj30u00nndip.jpg> referred in <None>
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/【你喜欢深蓝色吗？】1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4um4322mj30u01hc42q.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '【你喜欢深蓝色吗？】1'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/怎么样1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uow0uinj30u00z5wkc.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '怎么样1'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/蒸一起变优秀的伙伴1.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uob04jmj30u00mijsn.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '蒸一起变优秀的伙伴1'}
+2020-05-13 15:06:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.buxiuse.com/?page=1>
+{'img_path': 'C:\\sources\\buxiuse\\img/蒸一起变优秀的伙伴2.jpg',
+ 'img_url': 'https://tva1.sinaimg.cn/bmiddle/0080xEK2gy1ge4uoamhxwj30u00nndip.jpg',
+ 'ref': 'https://www.buxiuse.com/?page=1',
+ 'title': '蒸一起变优秀的伙伴2'}
+2020-05-13 15:06:55 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-05-13 15:06:55 [scrapy.extensions.feedexport] INFO: Stored json feed (19 items) in: ../resources/2020-05-13.json
+2020-05-13 15:06:55 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 6603,
+ 'downloader/request_count': 20,
+ 'downloader/request_method_count/GET': 20,
+ 'downloader/response_bytes': 648286,
+ 'downloader/response_count': 20,
+ 'downloader/response_status_count/200': 20,
+ 'file_count': 19,
+ 'file_status_count/downloaded': 19,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 5, 13, 7, 6, 55, 525360),
+ 'item_scraped_count': 19,
+ 'log_count/DEBUG': 59,
+ 'log_count/INFO': 10,
+ 'response_received_count': 20,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 5, 13, 7, 6, 53, 856775)}
+2020-05-13 15:06:55 [scrapy.core.engine] INFO: Spider closed (finished)
