@@ -7,10 +7,10 @@ class MultiSpiderSpider(scrapy.Spider):
     name = 'multi_spider'
     allowed_domains = ['hjd.niao2048.biz/']
     start_urls = [
-        'https://hjd.niao2048.biz/2048/thread.php?fid-274.html']
-    next_base_url = 'https://hjd.niao2048.biz/2048/thread.php?fid-274-page-'
+        'https://hjd.niao2048.biz/2048/thread.php?fid-275.html']
+    next_base_url = 'https://hjd.niao2048.biz/2048/thread.php?fid-275-page-'
 
-    page_index = 2
+    page_index = 1
     page_max = 100
     # 爬取的图片数量
     img_num = 0
@@ -26,7 +26,7 @@ class MultiSpiderSpider(scrapy.Spider):
         # 3 在查看代码，重修编写xpath
         img_urls = response.xpath('//td[@class="tal"]/a//@href').extract()
         for img_url in img_urls:
-          # Filtered offsite request to 报错，解决方案：设置 dont_filter=True
+            # Filtered offsite request to 报错，解决方案：设置 dont_filter=True
             yield scrapy.Request(self.img_base_url + img_url, callback=self.parse, dont_filter=True)
 
         # 获取图片信息
@@ -72,13 +72,13 @@ class MultiSpiderSpider(scrapy.Spider):
             self.img_num += 1
             yield item
 
-        # 测试使用的，上线要注释掉
-        # if self.img_num >= 3:
-        #     exit(1)
+            # 测试使用的，上线要注释掉
+            # if self.img_num >= 3:
+            #     exit(1)
 
-        # 访问下一个页面
-        if self.page_index <= self.page_max:
-            self.log('访问page: ', self.page_index)
-            yield scrapy.Request(self.next_base_url+str(self.page_index) +
-                                 '.html', callback=self.parse)
-            self.page_index += 1
+            # 访问下一个页面
+
+        self.log('访问page: ', self.page_index)
+        yield scrapy.Request(self.next_base_url + str(self.page_index) +
+                             '.html', callback=self.parse)
+        self.page_index += 1

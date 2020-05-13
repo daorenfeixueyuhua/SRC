@@ -29,3 +29,4 @@ class HjdSpiderItem(scrapy.Item):
     time = scrapy.Field()
     # page index
     page = scrapy.Field()
+    ref = scrapy.Field()

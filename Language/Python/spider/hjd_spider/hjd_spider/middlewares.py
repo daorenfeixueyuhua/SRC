@@ -7,6 +7,29 @@
 
 from scrapy import signals
 
+import base64
+
+# 代理服务器
+proxyServer = "http-cla.abuyun.com:9030"
+
+# 代理隧道验证信息
+proxyUser = "H80BH7YN6210791C"
+proxyPass = "4E514B18B1462012"
+
+# for Python2
+# proxyAuth = "Basic " + base64.b64encode(proxyUser + ":" + proxyPass)
+
+
+# for Python3
+proxyAuth = "Basic " + base64.urlsafe_b64encode(bytes((proxyUser + ":" + proxyPass), "ascii")).decode("utf8")
+
+
+class ProxyMiddleware(object):
+    def process_request(self, request, spider):
+        request.meta["proxy"] = proxyServer
+
+        request.headers["Proxy-Authorization"] = proxyAuth
+
 
 class HjdSpiderSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
