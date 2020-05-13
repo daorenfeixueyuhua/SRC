@@ -20,3 +20,19 @@ class AmmmiItem(scrapy.Item):
     # 图片保存地址
     image_path = scrapy.Field()
     # pass
+
+
+class CosplayItem(scrapy.Item):
+    img_title = scrapy.Field()
+    title = scrapy.Field()
+    img_url = scrapy.Field()
+    img_path = scrapy.Field()
+
+
+class Dongmantupian(scrapy.Item):
+    img_title = scrapy.Field()
+    title = scrapy.Field()
+    img_url = scrapy.Field()
+    img_path = scrapy.Field()
+    index = scrapy.Field()
+    img_id = scrapy.Field()
