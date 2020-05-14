@@ -1,29 +1,16 @@
-from scrapy.cmdline import execute
-import datetime
-
-
-class Demo:
-    @classmethod
-    def crawl(self, spider_name):
-        date = datetime.date.today().isoformat()
-        max_item = 10
-        execute(['scrapy',
-                 'crawl',
-                 spider_name,
-                 '-o',
-                 '{0}.json'.format(date),
-                 '--logfile={0}.log'.format(date)])
-
-        # Stored json feed (614 items) in: 2020-05-03.json
-        # 一页大概50
-        # 已经被封IP了，换用代理试下。
-
-    @classmethod
-    def shell(self, url: str):
-        execute(['scrapy', 'shell', url])
-        pass
-
+from tools.spiderTool import *
 
 if __name__ == '__main__':
-    spier_name = 'net_meinv'
-    Demo.crawl(spier_name)
+    spider_name = 'net_meinv'
+    debug = DebugState()
+    shell = ShellState()
+    spiderTool = SpiderTool()
+    # debug mode
+    # spiderTool.setstate(state=debug)
+    # spiderTool.set_spider_name(spider_name)
+    # debug.do_action(spiderTool)
+
+    # shell mode
+    # spiderTool.set_shellUrl('https://hjd.niao2048.biz/2048/read.php?tid-2127862.html')
+    # spiderTool.setstate(shell)
+    # shell.do_action(spiderTool)

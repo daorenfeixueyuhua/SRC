@@ -14,7 +14,6 @@ def validateTitle(title):
     return new_title
 
 
-# DNS 出现问题，无法获取/ 也可能时该IP被封了
 
 class NetMeinvSpider(scrapy.Spider):
     name = 'net_meinv'
@@ -44,21 +43,7 @@ class NetMeinvSpider(scrapy.Spider):
         self.cilent = RedisTool(self.host, self.port)
         if 'thread' in self.start_urls[0]:
             self.next_base_url = self.next_base_url.format(self.page_id, '{0}')
-        # 工作目录在tool中
-        # with open('../resources/complete.txt', 'r') as file:
-        #     for line in file.readlines():
-        #         if 'http' in line or 'https' in line:
-        #             if '\n' in line:
-        #                 line.replace('\n', '')
-        #             self.complete_urls.append(line)
-        #     file.close()
-        # redis
-        # 加载已经完成的页面
         self.complete_urls = self.cilent.smembers(self.complete_key)
-        # self.fail_urls, cnt = self.cilent.read_urls(self.fail_key)
-        # for url in self.fail_urls:
-        #     self.start_urls.append(url)
-        #     self.fail_urls.remove(url)
         super().__init__(name, **kwargs)
 
     def close(spider, reason):
