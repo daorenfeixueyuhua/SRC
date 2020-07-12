@@ -11,4 +11,11 @@ import scrapy
 class MzituItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    title = scrapy.Field()
+    category = scrapy.Field()
+    img_url = scrapy.Field()
+    index = scrapy.Field()
+    ref = scrapy.Field()
+    create_time = scrapy.Field()
+    img_path = scrapy.Field()
     pass

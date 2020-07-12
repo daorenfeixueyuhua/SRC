@@ -10,3 +10,5 @@ execute(['scrapy',
          '-o',
          '{0}-{1}.json'.format(item_name, date),
          '--logfile={0}-{1}.log'.format(item_name, date)])
+
+# 设计模式对scrapy爬虫模板的构建

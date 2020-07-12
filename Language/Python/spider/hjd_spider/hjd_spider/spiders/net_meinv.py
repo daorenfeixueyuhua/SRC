@@ -4,6 +4,8 @@ import os
 import mysql
 import re
 from tools.redisTool import RedisTool
+from tools.spiderTool import SpiderTool
+from tools.singleton import Singleton
 
 from hjd_spider.items import *
 
@@ -14,44 +16,47 @@ def validateTitle(title):
     return new_title
 
 
-
-class NetMeinvSpider(scrapy.Spider):
+class NetMeinvSpider(scrapy.Spider, Singleton):
     name = 'net_meinv'
     allowed_domains = ['hjd.niao2048.biz']
-    # 要爬取的页面ID
-    page_id = '277'
-    host = 'localhost'
-    port = 6379
-    next_base_url = 'https://hjd.niao2048.biz/2048/thread.php?fid-{0}-page-{1}.html'
-    complete_urls = []
-    complete_key = 'hjd:{0}:complete:urls'.format(page_id)
-    fail_urls = []
-    fail_key = 'hjd:{0}:fail:urls'.format(page_id)
-    page_index = 1
-    page_max = 1
-    # 277 测试 [1: 1]
-    # 276 完成 [1: 70]
-    # 126
-    # redis
-    cilent = None
-    # 爬取的图片数量
-    img_num = 0
-    img_base_url = 'https://hjd.niao2048.biz/2048/'
-    start_urls = [next_base_url.format(page_id, str(page_index))]
 
-    def __init__(self, name=None, **kwargs):
-        self.cilent = RedisTool(self.host, self.port)
+    def __init__(self, name=None,
+                 **kwargs):
+        self.spider = SpiderTool()
+        # todo 无法获取参数，考虑使用SpiderTool单例模式进行传递参数
+        # 要爬取的页面ID
+        # self.page_id = '277'
+        self.page_id = self.spider.page_id
+        self.next_base_url = 'https://hjd.niao2048.biz/2048/thread.php?fid-{0}-page-{1}.html'
+        self.complete_urls = []
+        self.complete_key = self.complete_key.format(self.page_id)
+        self.fail_urls = []
+        self.fail_key = self.fail_key.format(self.page_id)
+        self.page_index = self.spider.page_index
+        self.page_max = self.spider.page_max
+        # 277 测试 [1: 1]
+        # 276 完成 [1: 70]
+        # 126
+        # redis
+        self.cilent = None
+        # 爬取的图片数量
+        self.img_base_url = 'https://hjd.niao2048.biz/2048/'
+        self.start_urls = [self.next_base_url.format(
+            self.page_id, str(self.page_index))]
+        self.cilent = self.spider.client
         if 'thread' in self.start_urls[0]:
             self.next_base_url = self.next_base_url.format(self.page_id, '{0}')
+        # 读取已经完成了的url
         self.complete_urls = self.cilent.smembers(self.complete_key)
         super().__init__(name, **kwargs)
 
-    def close(spider, reason):
-        spider.logger.info('保存已经爬取过的url')
-        spider.cilent.sadd(spider.complete_key, spider.complete_urls)
-        spider.cilent.sadd(spider.fail_key, spider.fail_urls)
+    def close(self, reason):
+        self.logger.info('保存已经爬取过的url')
+        self.cilent.sadd(spider.complete_key, spider.complete_urls)
+        self.cilent.sadd(spider.fail_key, spider.fail_urls)
 
     def parse(self, response):
+      
         if 'fid' in response.url:
             self.logger.info(msg='获取{0}内的图片连接'.format(response.url))
             img_urls = response.xpath('//td[@class="tal"]/a//@href').extract()
@@ -62,7 +67,8 @@ class NetMeinvSpider(scrapy.Spider):
             # 不加限制一直死循环
             self.page_index += 1
             if self.page_index <= self.page_max:
-                self.logger.info(msg='访问url: {0}'.format(self.next_base_url.format(str(self.page_index))))
+                self.logger.info(msg='访问url: {0}'.format(
+                    self.next_base_url.format(str(self.page_index))))
                 yield scrapy.Request(self.next_base_url.format(str(self.page_index)), callback=self.parse)
 
         if 'tid' in response.url:

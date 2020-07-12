@@ -1,0 +1,2 @@
+find . -name '*.exe' -exec rm -rf {} \;
+https://blog.csdn.net/tiankongtiankong01/article/details/79174161

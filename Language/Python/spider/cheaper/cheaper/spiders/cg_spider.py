@@ -5,13 +5,13 @@ from cheaper.items import CheaperItem
 
 class CgSpiderSpider(scrapy.Spider):
     name = 'cg_spider'
-    allowed_domains = ['cheaper.work/', 'cdn-msp.cheaper.work']
+    allowed_domains = ['18comic.fun', 'cdn-msp.cheaper.work']
     # 第一个为测试页面，好像如果从文件里面加载多个url，第一个url会得不到东西
 
-    start_urls = ['http://cheaper.work']
+    start_urls = ['https://18comic.fun']
     complete_urls = []
     fail_urls = []
-    download = 'http://cdn-msp.cheaper.work/media/photos/{0}/{1}.jpg'
+    download = 'http://cdn-msp.cheaper.fun/media/photos/{0}/{1}.jpg'
     max_page = 0
 
     def __init__(self, name=None, **kwargs):

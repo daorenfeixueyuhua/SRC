@@ -16,7 +16,8 @@ class DongmantupianSpider(scrapy.Spider):
     base_url = 'https://www.ammmi.com/category/dongmantupian/page/{0}/'
     allowed_domains = ['www.ammmi.com']
     page_index = 3
-    page_max = 86
+    # page_max = 86
+    page_max = 4
     start_urls = [base_url.format(str(page_index))]
     # redis key and values
     complete_key = 'ammmi:dongmantupian:complete:urls'
