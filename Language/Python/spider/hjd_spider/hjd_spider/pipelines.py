@@ -21,6 +21,7 @@ class HjdSpiderPipeline(ImagesPipeline):
         if not image_paths:
             raise DropItem("Item contains no images")
         # 重命名
+<<<<<<< HEAD
         dir = ''
         first_title = item['first_title']
         second_title = item['second_title']
@@ -88,4 +89,12 @@ class NetMeiNvPipeline(ImagesPipeline):
         os.rename(IMAGES_STORE + image_paths[0],
                   dir + item['index'] + '.jpg')
         item['image_paths'] = dir + item['index'] + '.jpg'
+=======
+        dir = IMAGES_STORE + item['title'] + '/'
+        if os.path.exists(dir) == False:
+            os.mkdir(dir)
+        os.rename(IMAGES_STORE+image_paths[0],
+                  dir + str(item['index']) + '.jpg')
+        item['image_paths'] = dir + str(item['index']) + '.jpg'
+>>>>>>> c58ecc4d435ea0785344b0f88d3f36ae3e078cfb
         return item

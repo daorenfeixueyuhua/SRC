@@ -11,15 +11,22 @@
 
 BOT_NAME = 'weibo'
 
+<<<<<<< HEAD:Language/Python/spider/weibo/weibo/settings.py
 SPIDER_MODULES = ['weibo.spiders']
 NEWSPIDER_MODULE = 'weibo.spiders'
+=======
+IMAGES_STORE = 'C:\sources\hjd\img/'
+
+SPIDER_MODULES = ['hjd_spider.spiders']
+NEWSPIDER_MODULE = 'hjd_spider.spiders'
+>>>>>>> c58ecc4d435ea0785344b0f88d3f36ae3e078cfb:Language/Python/spider/hjd_spider/hjd_spider/settings.py
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'weibo (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -39,13 +46,14 @@ ROBOTSTXT_OBEY = True
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
+# DEFAULT_REQUEST_HEADERS = {
 #   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
-#}
+# }
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+<<<<<<< HEAD:Language/Python/spider/weibo/weibo/settings.py
 #SPIDER_MIDDLEWARES = {
 #    'weibo.middlewares.WeiboSpiderMiddleware': 543,
 #}
@@ -55,18 +63,35 @@ ROBOTSTXT_OBEY = True
 #DOWNLOADER_MIDDLEWARES = {
 #    'weibo.middlewares.WeiboDownloaderMiddleware': 543,
 #}
+=======
+# SPIDER_MIDDLEWARES = {
+#     'hjd_spider.middlewares.HjdSpiderSpiderMiddleware': 543,
+# }
+
+# Enable or disable downloader middlewares
+# See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+# DOWNLOADER_MIDDLEWARES = {
+#    'hjd_spider.middlewares.HjdSpiderDownloaderMiddleware': 543,
+# }
+>>>>>>> c58ecc4d435ea0785344b0f88d3f36ae3e078cfb:Language/Python/spider/hjd_spider/hjd_spider/settings.py
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
-#EXTENSIONS = {
+# EXTENSIONS = {
 #    'scrapy.extensions.telnet.TelnetConsole': None,
-#}
+# }
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+<<<<<<< HEAD:Language/Python/spider/weibo/weibo/settings.py
 #ITEM_PIPELINES = {
 #    'weibo.pipelines.WeiboPipeline': 300,
 #}
+=======
+ITEM_PIPELINES = {
+    'hjd_spider.pipelines.HjdSpiderPipeline': 300,
+}
+>>>>>>> c58ecc4d435ea0785344b0f88d3f36ae3e078cfb:Language/Python/spider/hjd_spider/hjd_spider/settings.py
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

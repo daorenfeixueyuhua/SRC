@@ -11,4 +11,7 @@ Algorithm/Contest/CodeForces/.idea/*
 *.pyc
 *.exe
 *.cpython-37.pyc
+<<<<<<< HEAD
 Language/Java/gradle-demo/bin/*
+=======
+>>>>>>> c58ecc4d435ea0785344b0f88d3f36ae3e078cfb
